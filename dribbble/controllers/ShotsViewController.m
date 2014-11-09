@@ -37,7 +37,6 @@
                                                object:nil];
     
     NSString *code = [Lockbox stringForKey:@"code"];
-    NSLog(@"%@", code);
     if (code != nil) {
         [self authenticateWithCode:code];
     } else {
@@ -67,22 +66,36 @@
     RequestManager *manager = [RequestManager sharedManager];
     
     if(!self.authenticated) {
-        [manager authorizeWithCode:code
-                           success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
-                               NSLog(@"Successful authentication");
-                               
-                               [self dismissViewControllerAnimated:YES completion:nil];
-                               
-                               self.authenticated = true;
-                               
-                               [Lockbox setString:code forKey:@"code"];
-                           }
-                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                               NSLog(@"Error handling auth: %@", error);
-                               
-                               AuthViewController *vc = [[AuthViewController alloc] init];
-                               [self presentViewController:vc animated:YES completion:nil];
-                           }];
+        [manager authorizeWithCode:code]
+            .then(^(NSDictionary *response) {
+                NSLog(@"Successful authentication");
+               
+                if (self.presentedViewController) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+               
+                self.authenticated = true;
+               
+                [Lockbox setString:response[@"access_token"] forKey:@"code"];
+                [manager setAuthorizationHeader:response[@"access_token"]];
+                
+                return [manager userForId:nil];
+            })
+            .then(^(NSDictionary *response) {
+                NSLog(@"Loading up some data: %@", response);
+            })
+            .catch(^(NSError *error) {
+                NSLog(@"Error handling auth: %@", error);
+                
+                NSURL *url = error.userInfo[@"NSErrorFailingURLKey"];
+               
+                if ([url.absoluteString hasSuffix:@"token"]) {
+                    [Lockbox setString:@"" forKey:@"code"];
+                    
+                    AuthViewController *vc = [[AuthViewController alloc] init];
+                    [self presentViewController:vc animated:YES completion:nil];
+                }
+            });
     }
 }
 

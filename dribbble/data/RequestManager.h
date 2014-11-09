@@ -7,14 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFHTTPRequestOperation.h>
+#import <PromiseKit-AFNetworking/AFNetworking+PromiseKit.h>
 
 @interface RequestManager : NSObject
 
+@property (nonatomic, strong) AFHTTPRequestOperationManager *requestManager;
+
 + (RequestManager *)sharedManager;
 
-- (NSString *)getAuthorizeUrl;
+- (BOOL)isAuthenticated;
+- (void)setAuthorizationHeader:(NSString *)code;
 
-- (void)authorizeWithCode:(NSString *)code success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (PMKPromise *)userForId:(NSInteger *)userId;
+
+- (PMKPromise *)authorizeWithCode:(NSString *)code;
+
+- (NSString *)getAuthorizeUrl;
 
 @end

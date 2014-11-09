@@ -7,6 +7,8 @@ target 'dribbble' do
   pod "AFNetworking", "~> 2.4.1"
   pod "Lockbox", "~> 2.1.0"
   pod "ionicons"
+  pod "PromiseKit"
+  pod "PromiseKit-AFNetworking"
 end
 
 target 'dribbbleTests' do

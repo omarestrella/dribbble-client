@@ -18,12 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor clearColor];
+    
     RequestManager *manager = [RequestManager sharedManager];
+    
     NSString *urlString = [manager getAuthorizeUrl];
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding : NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    UIWebView *view = [[UIWebView alloc] initWithFrame:[self.view frame]];
+    UIWebView *view;
+    
+    if(![manager isAuthenticated]) {
+        view = [[UIWebView alloc] initWithFrame:[self.view frame]];
+    } else {
+        view = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    }
+    
     view.delegate = self;
     [view loadRequest:request];
     
@@ -34,7 +44,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - WKNavigationDelegate
+#pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finished loading");
