@@ -14,6 +14,40 @@
 
 @implementation AppDelegate
 
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
+    if (query) {
+        NSArray *pairs = [query componentsSeparatedByString:@"&"];
+        
+        for (NSString *pair in pairs) {
+            NSArray *elements = [pair componentsSeparatedByString:@"="];
+            if ([elements count] == 2) {
+                NSString *key = [elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                NSString *val = [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                
+                dict[key] = val;
+            }
+        }
+    }
+    
+    return dict;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+
+    NSLog(@"Query string from URL: %@", [url query]);
+    
+    NSDictionary *dict = [self parseQueryString:[url query]];
+    
+    if ([url.host isEqualToString:@"auth"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"authAttempt"
+                                                            object:self
+                                                          userInfo:dict];
+    }
+    
+    return YES;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		6614F96A1A0FCF89009C643E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9691A0FCF89009C643E /* main.m */; };
 		6614F96D1A0FCF89009C643E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F96C1A0FCF89009C643E /* AppDelegate.m */; };
-		6614F9701A0FCF89009C643E /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F96F1A0FCF89009C643E /* FirstViewController.m */; };
-		6614F9731A0FCF89009C643E /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9721A0FCF89009C643E /* SecondViewController.m */; };
 		6614F9761A0FCF89009C643E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6614F9741A0FCF89009C643E /* Main.storyboard */; };
 		6614F9781A0FCF89009C643E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6614F9771A0FCF89009C643E /* Images.xcassets */; };
 		6614F97B1A0FCF89009C643E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6614F9791A0FCF89009C643E /* LaunchScreen.xib */; };
 		6614F9871A0FCF89009C643E /* dribbbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9861A0FCF89009C643E /* dribbbleTests.m */; };
+		6614F9931A0FD06E009C643E /* ShotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9921A0FD06E009C643E /* ShotsViewController.m */; };
+		6614F9971A0FD138009C643E /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9961A0FD138009C643E /* RequestManager.m */; };
+		6614F9991A0FE785009C643E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614F9981A0FE785009C643E /* Security.framework */; };
+		6614F99C1A0FE8E3009C643E /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F99B1A0FE8E3009C643E /* AuthViewController.m */; };
+		6614F99E1A0FEA10009C643E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614F99D1A0FEA10009C643E /* WebKit.framework */; };
+		8A64FC0895AE8EF2A2F3DD46 /* libPods-dribbble.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79238DB5399A645295D3A342 /* libPods-dribbble.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,21 +32,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0674129C5B7ED7BC0CE81A9C /* Pods-dribbble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dribbble.release.xcconfig"; path = "Pods/Target Support Files/Pods-dribbble/Pods-dribbble.release.xcconfig"; sourceTree = "<group>"; };
+		1E6C9B34D64B7EDE8E33BBC6 /* Pods-dribbble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dribbble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dribbble/Pods-dribbble.debug.xcconfig"; sourceTree = "<group>"; };
 		6614F9641A0FCF89009C643E /* dribbble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dribbble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6614F9681A0FCF89009C643E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6614F9691A0FCF89009C643E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6614F96B1A0FCF89009C643E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6614F96C1A0FCF89009C643E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6614F96E1A0FCF89009C643E /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		6614F96F1A0FCF89009C643E /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		6614F9711A0FCF89009C643E /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		6614F9721A0FCF89009C643E /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		6614F9751A0FCF89009C643E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6614F9771A0FCF89009C643E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6614F97A1A0FCF89009C643E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6614F9801A0FCF89009C643E /* dribbbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dribbbleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6614F9851A0FCF89009C643E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6614F9861A0FCF89009C643E /* dribbbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dribbbleTests.m; sourceTree = "<group>"; };
+		6614F9911A0FD06E009C643E /* ShotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotsViewController.h; path = controllers/ShotsViewController.h; sourceTree = "<group>"; };
+		6614F9921A0FD06E009C643E /* ShotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotsViewController.m; path = controllers/ShotsViewController.m; sourceTree = "<group>"; };
+		6614F9951A0FD138009C643E /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestManager.h; path = data/RequestManager.h; sourceTree = "<group>"; };
+		6614F9961A0FD138009C643E /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestManager.m; path = data/RequestManager.m; sourceTree = "<group>"; };
+		6614F9981A0FE785009C643E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6614F99A1A0FE8E3009C643E /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthViewController.h; path = controllers/AuthViewController.h; sourceTree = "<group>"; };
+		6614F99B1A0FE8E3009C643E /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthViewController.m; path = controllers/AuthViewController.m; sourceTree = "<group>"; };
+		6614F99D1A0FEA10009C643E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		79238DB5399A645295D3A342 /* libPods-dribbble.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dribbble.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6614F99E1A0FEA10009C643E /* WebKit.framework in Frameworks */,
+				6614F9991A0FE785009C643E /* Security.framework in Frameworks */,
+				8A64FC0895AE8EF2A2F3DD46 /* libPods-dribbble.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3964960BB8B6F09F038EE3F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E6C9B34D64B7EDE8E33BBC6 /* Pods-dribbble.debug.xcconfig */,
+				0674129C5B7ED7BC0CE81A9C /* Pods-dribbble.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6614F95B1A0FCF89009C643E = {
 			isa = PBXGroup;
 			children = (
 				6614F9661A0FCF89009C643E /* dribbble */,
 				6614F9831A0FCF89009C643E /* dribbbleTests */,
 				6614F9651A0FCF89009C643E /* Products */,
+				3964960BB8B6F09F038EE3F7 /* Pods */,
+				CD27899459CA994D3422EB80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,12 +109,10 @@
 		6614F9661A0FCF89009C643E /* dribbble */ = {
 			isa = PBXGroup;
 			children = (
+				6614F9941A0FD123009C643E /* data */,
+				6614F9901A0FCFB6009C643E /* controllers */,
 				6614F96B1A0FCF89009C643E /* AppDelegate.h */,
 				6614F96C1A0FCF89009C643E /* AppDelegate.m */,
-				6614F96E1A0FCF89009C643E /* FirstViewController.h */,
-				6614F96F1A0FCF89009C643E /* FirstViewController.m */,
-				6614F9711A0FCF89009C643E /* SecondViewController.h */,
-				6614F9721A0FCF89009C643E /* SecondViewController.m */,
 				6614F9741A0FCF89009C643E /* Main.storyboard */,
 				6614F9771A0FCF89009C643E /* Images.xcassets */,
 				6614F9791A0FCF89009C643E /* LaunchScreen.xib */,
@@ -124,6 +147,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6614F9901A0FCFB6009C643E /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6614F9911A0FD06E009C643E /* ShotsViewController.h */,
+				6614F9921A0FD06E009C643E /* ShotsViewController.m */,
+				6614F99A1A0FE8E3009C643E /* AuthViewController.h */,
+				6614F99B1A0FE8E3009C643E /* AuthViewController.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		6614F9941A0FD123009C643E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				6614F9951A0FD138009C643E /* RequestManager.h */,
+				6614F9961A0FD138009C643E /* RequestManager.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		CD27899459CA994D3422EB80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6614F99D1A0FEA10009C643E /* WebKit.framework */,
+				6614F9981A0FE785009C643E /* Security.framework */,
+				79238DB5399A645295D3A342 /* libPods-dribbble.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6614F98A1A0FCF89009C643E /* Build configuration list for PBXNativeTarget "dribbble" */;
 			buildPhases = (
+				0716015B28603F9237E119EF /* Check Pods Manifest.lock */,
 				6614F9601A0FCF89009C643E /* Sources */,
 				6614F9611A0FCF89009C643E /* Frameworks */,
 				6614F9621A0FCF89009C643E /* Resources */,
+				A7CCB7F4CAEA137648406B4C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,15 +274,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0716015B28603F9237E119EF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A7CCB7F4CAEA137648406B4C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dribbble/Pods-dribbble-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6614F9601A0FCF89009C643E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6614F9731A0FCF89009C643E /* SecondViewController.m in Sources */,
 				6614F96D1A0FCF89009C643E /* AppDelegate.m in Sources */,
-				6614F9701A0FCF89009C643E /* FirstViewController.m in Sources */,
+				6614F99C1A0FE8E3009C643E /* AuthViewController.m in Sources */,
+				6614F9931A0FD06E009C643E /* ShotsViewController.m in Sources */,
 				6614F96A1A0FCF89009C643E /* main.m in Sources */,
+				6614F9971A0FD138009C643E /* RequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +436,7 @@
 		};
 		6614F98B1A0FCF89009C643E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E6C9B34D64B7EDE8E33BBC6 /* Pods-dribbble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = dribbble/Info.plist;
@@ -357,6 +447,7 @@
 		};
 		6614F98C1A0FCF89009C643E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0674129C5B7ED7BC0CE81A9C /* Pods-dribbble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = dribbble/Info.plist;
@@ -418,6 +509,7 @@
 				6614F98C1A0FCF89009C643E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6614F98D1A0FCF89009C643E /* Build configuration list for PBXNativeTarget "dribbbleTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +518,7 @@
 				6614F98F1A0FCF89009C643E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

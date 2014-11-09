@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  AuthViewController.h
 //  dribbble
 //
 //  Created by Omar Estrella on 11/9/14.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface AuthViewController : UIViewController<UIWebViewDelegate>
 
 @end
-
