@@ -6,6 +6,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'dribbble' do
   pod "AFNetworking", "~> 2.4.1"
   pod "Lockbox", "~> 2.1.0"
+  pod "Mantle", "~> 1.5.1"
   pod "ionicons"
   pod "PromiseKit"
   pod "PromiseKit-AFNetworking"

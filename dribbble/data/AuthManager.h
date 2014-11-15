@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <PromiseKit-AFNetworking/AFNetworking+PromiseKit.h>
 
-@interface RequestManager : NSObject
+#import "APIStore.h"
 
-@property (nonatomic, strong) AFHTTPRequestOperationManager *requestManager;
+@interface AuthManager : NSObject
 
-+ (RequestManager *)sharedManager;
+@property (nonatomic, strong) Store *store;
+
++ (AuthManager *)sharedManager;
+- (AuthManager *)init;
 
 - (BOOL)isAuthenticated;
-- (void)setAuthorizationHeader:(NSString *)code;
-
-- (PMKPromise *)userForId:(NSInteger *)userId;
 
 - (PMKPromise *)authorizeWithCode:(NSString *)code;
 

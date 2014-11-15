@@ -7,7 +7,7 @@
 //
 
 #import "AuthViewController.h"
-#import "RequestManager.h"
+#import "AuthManager.h"
 
 @interface AuthViewController ()
 
@@ -20,19 +20,13 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     
-    RequestManager *manager = [RequestManager sharedManager];
+    AuthManager *manager = [AuthManager sharedManager];
     
     NSString *urlString = [manager getAuthorizeUrl];
     NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    UIWebView *view;
-    
-    if(![manager isAuthenticated]) {
-        view = [[UIWebView alloc] initWithFrame:[self.view frame]];
-    } else {
-        view = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    }
+    UIWebView *view = [[UIWebView alloc] initWithFrame:[self.view frame]];
     
     view.delegate = self;
     [view loadRequest:request];
@@ -47,7 +41,7 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"Finished loading");
+
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

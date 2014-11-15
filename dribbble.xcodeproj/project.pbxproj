@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		660CAC1F1A15975900ECE4B0 /* ShotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 660CAC1E1A15975900ECE4B0 /* ShotModel.m */; };
+		660CAC261A1797F700ECE4B0 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 660CAC251A1797F700ECE4B0 /* Store.m */; };
 		6614F96A1A0FCF89009C643E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9691A0FCF89009C643E /* main.m */; };
 		6614F96D1A0FCF89009C643E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F96C1A0FCF89009C643E /* AppDelegate.m */; };
 		6614F9761A0FCF89009C643E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6614F9741A0FCF89009C643E /* Main.storyboard */; };
@@ -14,11 +16,18 @@
 		6614F97B1A0FCF89009C643E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6614F9791A0FCF89009C643E /* LaunchScreen.xib */; };
 		6614F9871A0FCF89009C643E /* dribbbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9861A0FCF89009C643E /* dribbbleTests.m */; };
 		6614F9931A0FD06E009C643E /* ShotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9921A0FD06E009C643E /* ShotsViewController.m */; };
-		6614F9971A0FD138009C643E /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9961A0FD138009C643E /* RequestManager.m */; };
 		6614F9991A0FE785009C643E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614F9981A0FE785009C643E /* Security.framework */; };
 		6614F99C1A0FE8E3009C643E /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F99B1A0FE8E3009C643E /* AuthViewController.m */; };
 		6614F99E1A0FEA10009C643E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614F99D1A0FEA10009C643E /* WebKit.framework */; };
+		6614F9A11A10270F009C643E /* APIStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A01A10270F009C643E /* APIStore.m */; };
+		6614F9A41A104125009C643E /* ShotsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A31A104125009C643E /* ShotsDataSource.m */; };
+		6614F9A81A1045A6009C643E /* ShotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */; };
 		8A64FC0895AE8EF2A2F3DD46 /* libPods-dribbble.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79238DB5399A645295D3A342 /* libPods-dribbble.a */; };
+		DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F90FE0D50E280DB3D96CD /* MockAuthManager.m */; };
+		DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */; };
+		DD5F972AF9DCCB59443B949E /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F91AC63C801E58CEB5DB2 /* AuthManager.m */; };
+		DD5F9A87097251C5020F94D8 /* MockStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F91A87EC17E4741A9456F /* MockStore.m */; };
+		DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F924A24E2EE825B7FF703 /* AppConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,10 @@
 /* Begin PBXFileReference section */
 		0674129C5B7ED7BC0CE81A9C /* Pods-dribbble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dribbble.release.xcconfig"; path = "Pods/Target Support Files/Pods-dribbble/Pods-dribbble.release.xcconfig"; sourceTree = "<group>"; };
 		1E6C9B34D64B7EDE8E33BBC6 /* Pods-dribbble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dribbble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dribbble/Pods-dribbble.debug.xcconfig"; sourceTree = "<group>"; };
+		660CAC1D1A15975900ECE4B0 /* ShotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotModel.h; path = models/ShotModel.h; sourceTree = "<group>"; };
+		660CAC1E1A15975900ECE4B0 /* ShotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotModel.m; path = models/ShotModel.m; sourceTree = "<group>"; };
+		660CAC241A1797F700ECE4B0 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = data/Store.h; sourceTree = "<group>"; };
+		660CAC251A1797F700ECE4B0 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = data/Store.m; sourceTree = "<group>"; };
 		6614F9641A0FCF89009C643E /* dribbble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dribbble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6614F9681A0FCF89009C643E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6614F9691A0FCF89009C643E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,13 +60,27 @@
 		6614F9861A0FCF89009C643E /* dribbbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dribbbleTests.m; sourceTree = "<group>"; };
 		6614F9911A0FD06E009C643E /* ShotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotsViewController.h; path = controllers/ShotsViewController.h; sourceTree = "<group>"; };
 		6614F9921A0FD06E009C643E /* ShotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotsViewController.m; path = controllers/ShotsViewController.m; sourceTree = "<group>"; };
-		6614F9951A0FD138009C643E /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestManager.h; path = data/RequestManager.h; sourceTree = "<group>"; };
-		6614F9961A0FD138009C643E /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestManager.m; path = data/RequestManager.m; sourceTree = "<group>"; };
 		6614F9981A0FE785009C643E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6614F99A1A0FE8E3009C643E /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthViewController.h; path = controllers/AuthViewController.h; sourceTree = "<group>"; };
 		6614F99B1A0FE8E3009C643E /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthViewController.m; path = controllers/AuthViewController.m; sourceTree = "<group>"; };
 		6614F99D1A0FEA10009C643E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		6614F99F1A10270F009C643E /* APIStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIStore.h; path = data/APIStore.h; sourceTree = "<group>"; };
+		6614F9A01A10270F009C643E /* APIStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIStore.m; path = data/APIStore.m; sourceTree = "<group>"; };
+		6614F9A21A104125009C643E /* ShotsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotsDataSource.h; path = data/ShotsDataSource.h; sourceTree = "<group>"; };
+		6614F9A31A104125009C643E /* ShotsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotsDataSource.m; path = data/ShotsDataSource.m; sourceTree = "<group>"; };
+		6614F9A61A1045A6009C643E /* ShotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotCollectionViewCell.h; path = views/ShotCollectionViewCell.h; sourceTree = "<group>"; };
+		6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotCollectionViewCell.m; path = views/ShotCollectionViewCell.m; sourceTree = "<group>"; };
 		79238DB5399A645295D3A342 /* libPods-dribbble.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dribbble.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD5F90FE0D50E280DB3D96CD /* MockAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockAuthManager.m; sourceTree = "<group>"; };
+		DD5F91A87EC17E4741A9456F /* MockStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockStore.m; path = data/MockStore.m; sourceTree = "<group>"; };
+		DD5F91AC63C801E58CEB5DB2 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthManager.m; path = data/AuthManager.m; sourceTree = "<group>"; };
+		DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAuthManager.m; sourceTree = "<group>"; };
+		DD5F924A24E2EE825B7FF703 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		DD5F97842B972FDF0B275759 /* MockStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockStore.h; path = data/MockStore.h; sourceTree = "<group>"; };
+		DD5F9A8A614A535859366096 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthManager.h; path = data/AuthManager.h; sourceTree = "<group>"; };
+		DD5F9C67F12BBF86306D218F /* MockAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAuthManager.h; sourceTree = "<group>"; };
+		DD5F9D82C2881BD76E12E6B2 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		DD5F9E17D59BBAE0D6900752 /* APIAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAuthManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +113,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		660CAC1C1A15972D00ECE4B0 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				660CAC1D1A15975900ECE4B0 /* ShotModel.h */,
+				660CAC1E1A15975900ECE4B0 /* ShotModel.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		660CAC201A1797BB00ECE4B0 /* store */ = {
+			isa = PBXGroup;
+			children = (
+				6614F99F1A10270F009C643E /* APIStore.h */,
+				6614F9A01A10270F009C643E /* APIStore.m */,
+				660CAC241A1797F700ECE4B0 /* Store.h */,
+				660CAC251A1797F700ECE4B0 /* Store.m */,
+				DD5F97842B972FDF0B275759 /* MockStore.h */,
+				DD5F91A87EC17E4741A9456F /* MockStore.m */,
+			);
+			name = store;
+			sourceTree = "<group>";
+		};
 		6614F95B1A0FCF89009C643E = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +158,18 @@
 		6614F9661A0FCF89009C643E /* dribbble */ = {
 			isa = PBXGroup;
 			children = (
+				660CAC1C1A15972D00ECE4B0 /* models */,
 				6614F9941A0FD123009C643E /* data */,
 				6614F9901A0FCFB6009C643E /* controllers */,
+				6614F9A51A10456A009C643E /* views */,
 				6614F96B1A0FCF89009C643E /* AppDelegate.h */,
 				6614F96C1A0FCF89009C643E /* AppDelegate.m */,
 				6614F9741A0FCF89009C643E /* Main.storyboard */,
 				6614F9771A0FCF89009C643E /* Images.xcassets */,
 				6614F9791A0FCF89009C643E /* LaunchScreen.xib */,
 				6614F9671A0FCF89009C643E /* Supporting Files */,
+				DD5F924A24E2EE825B7FF703 /* AppConstants.m */,
+				DD5F9D82C2881BD76E12E6B2 /* AppConstants.h */,
 			);
 			path = dribbble;
 			sourceTree = "<group>";
@@ -161,10 +214,21 @@
 		6614F9941A0FD123009C643E /* data */ = {
 			isa = PBXGroup;
 			children = (
-				6614F9951A0FD138009C643E /* RequestManager.h */,
-				6614F9961A0FD138009C643E /* RequestManager.m */,
+				660CAC201A1797BB00ECE4B0 /* store */,
+				6614F9A21A104125009C643E /* ShotsDataSource.h */,
+				6614F9A31A104125009C643E /* ShotsDataSource.m */,
+				DD5F91BD2AD3CA093C2D9DC1 /* auth */,
 			);
 			name = data;
+			sourceTree = "<group>";
+		};
+		6614F9A51A10456A009C643E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6614F9A61A1045A6009C643E /* ShotCollectionViewCell.h */,
+				6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		CD27899459CA994D3422EB80 /* Frameworks */ = {
@@ -175,6 +239,19 @@
 				79238DB5399A645295D3A342 /* libPods-dribbble.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD5F91BD2AD3CA093C2D9DC1 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				DD5F9A8A614A535859366096 /* AuthManager.h */,
+				DD5F91AC63C801E58CEB5DB2 /* AuthManager.m */,
+				DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */,
+				DD5F9E17D59BBAE0D6900752 /* APIAuthManager.h */,
+				DD5F90FE0D50E280DB3D96CD /* MockAuthManager.m */,
+				DD5F9C67F12BBF86306D218F /* MockAuthManager.h */,
+			);
+			name = auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +336,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6614F9761A0FCF89009C643E /* Main.storyboard in Resources */,
 				6614F97B1A0FCF89009C643E /* LaunchScreen.xib in Resources */,
+				6614F9761A0FCF89009C643E /* Main.storyboard in Resources */,
 				6614F9781A0FCF89009C643E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,11 +389,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6614F9A81A1045A6009C643E /* ShotCollectionViewCell.m in Sources */,
 				6614F96D1A0FCF89009C643E /* AppDelegate.m in Sources */,
 				6614F99C1A0FE8E3009C643E /* AuthViewController.m in Sources */,
+				660CAC261A1797F700ECE4B0 /* Store.m in Sources */,
+				660CAC1F1A15975900ECE4B0 /* ShotModel.m in Sources */,
 				6614F9931A0FD06E009C643E /* ShotsViewController.m in Sources */,
 				6614F96A1A0FCF89009C643E /* main.m in Sources */,
-				6614F9971A0FD138009C643E /* RequestManager.m in Sources */,
+				6614F9A41A104125009C643E /* ShotsDataSource.m in Sources */,
+				6614F9A11A10270F009C643E /* APIStore.m in Sources */,
+				DD5F9A87097251C5020F94D8 /* MockStore.m in Sources */,
+				DD5F972AF9DCCB59443B949E /* AuthManager.m in Sources */,
+				DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */,
+				DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */,
+				DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +471,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"MOCK=1",
+					"$(inherited)",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -442,6 +532,7 @@
 				INFOPLIST_FILE = dribbble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -453,6 +544,7 @@
 				INFOPLIST_FILE = dribbble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

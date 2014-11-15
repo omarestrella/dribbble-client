@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShotsViewController : UICollectionViewController<UICollectionViewDelegate>
+#import "APIStore.h"
+#import "ShotsDataSource.h"
+
+@interface ShotsViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, assign) BOOL authenticated;
+@property (nonatomic, strong) Store *store;
+@property (nonatomic, strong) ShotsDataSource *dataSource;
 
 @end
