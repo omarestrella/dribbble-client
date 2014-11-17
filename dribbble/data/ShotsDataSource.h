@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) APIStore *store;
 
+@property(nonatomic, strong) NSArray *shots;
+
 @end

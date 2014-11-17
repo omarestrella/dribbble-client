@@ -30,11 +30,6 @@
     return sharedStore;
 }
 
-- (Store *)init {
-    [NSError errorWithDomain:NSErrorDomain code:-1 userInfo:nil];
-    return nil;
-}
-
 - (void)setAuthorizationHeader:(NSString *)code {
     [NSError errorWithDomain:NSErrorDomain code:-1 userInfo:nil];
 }

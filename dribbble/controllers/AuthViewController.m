@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
+#import <Lockbox.h>
+
 #import "AuthViewController.h"
 #import "AuthManager.h"
 
@@ -17,25 +19,69 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [Lockbox initialize];
+
     self.view.backgroundColor = [UIColor clearColor];
-    
+
+#ifdef MOCK
+    [self authenticateWithCode:@"code"];
+#else
     AuthManager *manager = [AuthManager sharedManager];
-    
+
     NSString *urlString = [manager getAuthorizeUrl];
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
+
     UIWebView *view = [[UIWebView alloc] initWithFrame:[self.view frame]];
-    
+
     view.delegate = self;
     [view loadRequest:request];
-    
+
     [self.view addSubview:view];
+#endif
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleAuthAttempt:)
+                                                 name:@"authAttempt"
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Authentication
+
+- (void)handleAuthAttempt:(NSNotification *)notification {
+    NSDictionary *data = [notification userInfo];
+    if (data[@"code"]) {
+        [self authenticateWithCode:data[@"code"]];
+    }
+}
+
+- (void)authenticateWithCode:(NSString *)code {
+    AuthManager *manager = [AuthManager sharedManager];
+
+    [manager authorizeWithCode:code]
+        .then(^(NSDictionary *response) {
+            [self performSegueWithIdentifier:@"successfulAuth" sender:self];
+        })
+        .catch(^(NSError *error) {
+            NSURL *url = error.userInfo[@"NSErrorFailingURLKey"];
+
+            if ([url.absoluteString hasSuffix:@"token"]) {
+                [Lockbox setString:@"" forKey:@"code"];
+
+                NSLog(@"Bad error...");
+            }
+        });
 }
 
 #pragma mark - UIWebViewDelegate

@@ -7,7 +7,6 @@
 //
 
 #import <AFHTTPRequestOperation.h>
-#import <Lockbox.h>
 #import <IonIcons.h>
 
 #import "ShotsViewController.h"
@@ -27,8 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [Lockbox initialize];
-    
     self.store = [Store sharedStore];
     self.dataSource = [[ShotsDataSource alloc] init];
     
@@ -38,22 +35,13 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleAuthAttempt:)
-                                                 name:@"authAttempt"
-                                               object:nil];
-    
-    NSString *code = [Lockbox stringForKey:@"code"];
-    if (code != nil) {
-        [self authenticateWithCode:code];
-    } else {
-        AuthViewController *vc = [[AuthViewController alloc] init];
-        [self presentViewController:vc animated:YES completion:nil];
-    }
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    NSString *code = [Lockbox stringForKey:@"code"];
+//    if (code != nil) {
+//        [self authenticateWithCode:code];
+//    } else {
+//        AuthViewController *vc = [[AuthViewController alloc] init];
+//        [self presentViewController:vc animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,47 +55,6 @@
                                   imageSize:CGSizeMake(20.0f, 90.0f)];
 
     [self.navigationItem.rightBarButtonItem setImage:icon];
-}
-
-#pragma mark - Authentication
-
-- (void)handleAuthAttempt:(NSNotification *)notification {
-    NSDictionary *data = [notification userInfo];
-    if (data[@"code"]) {
-        [self authenticateWithCode:data[@"code"]];
-    }
-}
-
-- (void)authenticateWithCode:(NSString *)code {
-    AuthManager *manager = [AuthManager sharedManager];
-    
-    if(!self.authenticated) {
-        [manager authorizeWithCode:code]
-            .then(^(NSDictionary *response) {               
-                if (self.presentedViewController) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }
-
-                self.authenticated = true;
-                
-                [self.store me];
-                
-                return [self.store shots];
-            })
-            .then(^(NSArray *shots) {
-                [self.collectionView reloadData];
-            })
-            .catch(^(NSError *error) {
-                NSURL *url = error.userInfo[@"NSErrorFailingURLKey"];
-               
-                if ([url.absoluteString hasSuffix:@"token"]) {
-                    [Lockbox setString:@"" forKey:@"code"];
-                    
-                    AuthViewController *vc = [[AuthViewController alloc] init];
-                    [self presentViewController:vc animated:YES completion:nil];
-                }
-            });
-    }
 }
 
 #pragma mark - UICollectionViewDelegate

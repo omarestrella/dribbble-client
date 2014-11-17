@@ -16,7 +16,6 @@
 @property (nonatomic, strong) NSMutableDictionary *cache;
 
 + (Store *)sharedStore;
-- (Store *)init;
 
 - (void)setAuthorizationHeader:(NSString *)code;
 
