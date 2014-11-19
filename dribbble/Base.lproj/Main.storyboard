@@ -133,7 +133,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-dO-Ay4">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="131" placeholderIntrinsicHeight="131" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-dO-Ay4">
                                             <rect key="frame" x="35" y="34" width="131" height="131"/>
                                         </imageView>
                                     </subviews>
@@ -145,6 +145,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="QHp-dO-Ay4" id="ItA-wn-GrP"/>
+                                    <segue destination="P0h-3h-jO0" kind="show" identifier="shotDetail" id="3n4-Sk-LFr"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -168,6 +169,32 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1468" y="-21"/>
+        </scene>
+        <!--Shot-->
+        <scene sceneID="WdA-ya-RNT">
+            <objects>
+                <tableViewController title="Shot" id="P0h-3h-jO0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vdE-Nx-SNa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tab-dc-71t">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tab-dc-71t" id="SdS-9q-Xrl">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="P0h-3h-jO0" id="yyi-gd-u8s"/>
+                            <outlet property="delegate" destination="P0h-3h-jO0" id="BUV-js-KDx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ou-iK-OaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1458" y="806"/>
         </scene>
     </scenes>
     <resources>
