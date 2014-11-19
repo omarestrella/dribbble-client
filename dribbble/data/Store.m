@@ -44,7 +44,7 @@
     return nil;
 }
 
-- (PMKPromise *)shots {
+- (PMKPromise *)shots:(NSNumber *)page {
     [NSError errorWithDomain:NSErrorDomain code:-1 userInfo:nil];
     return nil;
 }

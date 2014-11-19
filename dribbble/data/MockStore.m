@@ -23,7 +23,7 @@
     }];
 }
 
-- (PMKPromise *)shots {
+- (PMKPromise *)shots:(int)page {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:30];
         NSDictionary *shot = [self mockDataForFile:@"shot"];

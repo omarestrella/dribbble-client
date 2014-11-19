@@ -22,8 +22,6 @@
 
     [Lockbox initialize];
 
-    self.view.backgroundColor = [UIColor clearColor];
-
 #ifdef MOCK
     [self authenticateWithCode:@"code"];
 #else
@@ -35,6 +33,7 @@
 
     UIWebView *view = [[UIWebView alloc] initWithFrame:[self.view frame]];
 
+    view.userInteractionEnabled = YES;
     view.delegate = self;
     [view loadRequest:request];
 
@@ -87,7 +86,7 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-
+    NSLog(@"Finished loading");
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

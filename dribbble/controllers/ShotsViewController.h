@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "APIStore.h"
-#import "ShotsDataSource.h"
 
-@interface ShotsViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
+@interface ShotsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, assign) BOOL authenticated;
+@property BOOL loading;
+@property int currentPage;
+
 @property (nonatomic, strong) Store *store;
-@property (nonatomic, strong) ShotsDataSource *dataSource;
+
+@property (nonatomic, strong) NSMutableArray *shots;
 
 @end

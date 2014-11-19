@@ -21,6 +21,6 @@
 
 - (PMKPromise *)me;
 - (PMKPromise *)userForId:(NSNumber *)userId;
-- (PMKPromise *)shots;
+- (PMKPromise *)shots:(int)page;
 
 @end

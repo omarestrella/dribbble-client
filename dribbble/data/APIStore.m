@@ -54,12 +54,16 @@
     });
 }
 
-- (PMKPromise *)shots {
+- (PMKPromise *)shots:(int)page {
     NSString *url = @"shots";
 
-    NSDictionary *params = @{
-        @"per_page" : @20
-    };
+    NSMutableDictionary *params = [@{
+        @"per_page" : @40
+    } mutableCopy];
+
+    if (page) {
+        params[@"page"] = @(page);
+    }
 
     return [self.manager GET:url parameters:params].then(^(NSArray *shots) {
         self.cache[@"shots"] = shots;
