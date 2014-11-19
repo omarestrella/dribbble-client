@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Auth View Controller-->
@@ -45,11 +44,11 @@
             </objects>
             <point key="canvasLocation" x="22" y="-28"/>
         </scene>
-        <!--Item-->
+        <!--Shots-->
         <scene sceneID="IJf-oJ-QVE">
             <objects>
                 <navigationController id="jnA-gb-Gff" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wZ4-8O-65X"/>
+                    <tabBarItem key="tabBarItem" title="Shots" image="image@3x.png" id="wZ4-8O-65X"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mec-GB-bD9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -112,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="1426" y="-684"/>
         </scene>
-        <!--shots-->
+        <!--Shots-->
         <scene sceneID="3fA-ok-0Qi">
             <objects>
                 <collectionViewController id="tsY-pV-iXU" customClass="ShotsViewController" sceneMemberID="viewController">
@@ -136,8 +135,6 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-dO-Ay4">
                                             <rect key="frame" x="35" y="34" width="131" height="131"/>
-                                            <constraints>
-                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -155,7 +152,7 @@
                             <outlet property="delegate" destination="tsY-pV-iXU" id="Ygo-zx-ReY"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="shots" id="mnD-Tf-6Zg">
+                    <navigationItem key="navigationItem" title="Shots" id="mnD-Tf-6Zg">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="40y-do-YnH">
                             <connections>
                                 <segue destination="1mm-c0-BuX" kind="show" id="mgm-2e-b3u"/>
@@ -173,4 +170,7 @@
             <point key="canvasLocation" x="1468" y="-21"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image@3x.png" width="66" height="66"/>
+    </resources>
 </document>
