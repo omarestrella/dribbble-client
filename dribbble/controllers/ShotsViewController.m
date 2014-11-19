@@ -12,6 +12,7 @@
 
 #import "ShotsViewController.h"
 #import "ShotCollectionViewCell.h"
+#import "ShotDetailTableViewController.h"
 
 @interface ShotsViewController () {
     BOOL _loading;
@@ -138,14 +139,15 @@
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"shotDetail"]) {
+        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
+        NSDictionary *shot = (self.shots)[(NSUInteger) indexPath.row];
+        ShotDetailTableViewController *vc = (ShotDetailTableViewController *)[segue destinationViewController];
+        vc.shot = shot;
+    }
 }
-*/
 
 @end
