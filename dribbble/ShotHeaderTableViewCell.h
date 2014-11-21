@@ -8,5 +8,6 @@
 @interface ShotHeaderTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *author;
 
 @end
