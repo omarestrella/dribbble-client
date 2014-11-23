@@ -28,6 +28,7 @@
 		DD5F90815D75D8B4C5E2DEAB /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5F94789CE455FBBE1286D6 /* user.json */; };
 		DD5F90A76740DC828FA59BA9 /* ShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9B6D63929E6439639C54 /* ShotDetailTableViewController.m */; };
 		DD5F91744D064167AA64A6C9 /* ShotHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F964D06422937FB4561DF /* ShotHeaderTableViewCell.m */; };
+		DD5F9175B03AC72A0E0D9361 /* ShotImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9D184A5CEB523891FDD4 /* ShotImageTableViewCell.m */; };
 		DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F90FE0D50E280DB3D96CD /* MockAuthManager.m */; };
 		DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */; };
 		DD5F972AF9DCCB59443B949E /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F91AC63C801E58CEB5DB2 /* AuthManager.m */; };
@@ -83,6 +84,7 @@
 		DD5F91AC63C801E58CEB5DB2 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthManager.m; path = data/AuthManager.m; sourceTree = "<group>"; };
 		DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAuthManager.m; sourceTree = "<group>"; };
 		DD5F924A24E2EE825B7FF703 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		DD5F925400925F2684804453 /* ShotImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotImageTableViewCell.h; sourceTree = "<group>"; };
 		DD5F9301F61858C605831B75 /* ShotDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotDetailTableViewController.h; sourceTree = "<group>"; };
 		DD5F9327B8CBEEA296BE2550 /* shot.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = shot.json; sourceTree = "<group>"; };
 		DD5F936D4275674AD6D6F238 /* ShotHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotHeaderTableViewCell.h; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		DD5F9A8A614A535859366096 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthManager.h; path = data/AuthManager.h; sourceTree = "<group>"; };
 		DD5F9B6D63929E6439639C54 /* ShotDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotDetailTableViewController.m; sourceTree = "<group>"; };
 		DD5F9C67F12BBF86306D218F /* MockAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAuthManager.h; sourceTree = "<group>"; };
+		DD5F9D184A5CEB523891FDD4 /* ShotImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotImageTableViewCell.m; sourceTree = "<group>"; };
 		DD5F9D82C2881BD76E12E6B2 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		DD5F9E17D59BBAE0D6900752 /* APIAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAuthManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,6 +257,8 @@
 				6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */,
 				DD5F964D06422937FB4561DF /* ShotHeaderTableViewCell.m */,
 				DD5F936D4275674AD6D6F238 /* ShotHeaderTableViewCell.h */,
+				DD5F9D184A5CEB523891FDD4 /* ShotImageTableViewCell.m */,
+				DD5F925400925F2684804453 /* ShotImageTableViewCell.h */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */,
 				DD5F90A76740DC828FA59BA9 /* ShotDetailTableViewController.m in Sources */,
 				DD5F91744D064167AA64A6C9 /* ShotHeaderTableViewCell.m in Sources */,
+				DD5F9175B03AC72A0E0D9361 /* ShotImageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

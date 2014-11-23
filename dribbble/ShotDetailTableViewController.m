@@ -7,6 +7,7 @@
 
 #import "ShotDetailTableViewController.h"
 #import "ShotHeaderTableViewCell.h"
+#import "ShotImageTableViewCell.h"
 
 @implementation ShotDetailTableViewController
 
@@ -24,11 +25,20 @@
 
     UITableViewCell *cell;
 
-    if (indexPath.row == 0) {
-        ShotHeaderTableViewCell *headerCell = (ShotHeaderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"headerCell"
-                                                                                                         forIndexPath:indexPath];
-        headerCell.title.text = self.shot[@"title"];
-        cell = headerCell;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        ShotImageTableViewCell *imageCell = (ShotImageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"imageCell"
+                                                                                                      forIndexPath:indexPath];
+        NSURL *url = [NSURL URLWithString:self.shot[@"images"][@"normal"]];
+        [manager downloadImageWithURL:url options:nil progress:nil
+                            completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                if (image) {
+                                    CGFloat scale = imageCell.bounds.size.width / image.size.width;
+                                    CGRect frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
+                                    imageCell.imageView.frame = frame;
+                                    imageCell.imageView.image = image;
+                                }
+                            }];
+        cell = imageCell;
     }
 
     if (!cell) {
@@ -38,16 +48,42 @@
     return cell;
 }
 
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    }
+
+    return 12;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 68;
+#pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    ShotHeaderTableViewCell *headerCell = (ShotHeaderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"headerCell"];
+    headerCell.title.text = self.shot[@"title"];
+    headerCell.author.text = [NSString stringWithFormat:@"by %@", self.shot[@"user"][@"username"]];
+    return headerCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 62;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        NSInteger width = [self.shot[@"width"] integerValue];
+        NSInteger height = [self.shot[@"height"] integerValue];
+        CGFloat scale = tableView.contentSize.width / width;
+        return height * scale;
+    }
+
+    return 60;
 }
 
 @end
