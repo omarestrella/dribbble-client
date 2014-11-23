@@ -3,10 +3,10 @@
 // Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
-#import "ShotHeaderTableViewCell.h"
+#import "ShotHeaderView.h"
 
 
-@implementation ShotHeaderTableViewCell {
+@implementation ShotHeaderView {
 
 }
 @end

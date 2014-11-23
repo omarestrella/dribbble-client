@@ -12,7 +12,7 @@
 
 #import "ShotsViewController.h"
 #import "ShotCollectionViewCell.h"
-#import "ShotDetailTableViewController.h"
+#import "ShotDetailViewController.h"
 
 @interface ShotsViewController () {
     BOOL _loading;
@@ -145,7 +145,7 @@
     if ([segue.identifier isEqualToString:@"shotDetail"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
         NSDictionary *shot = (self.shots)[(NSUInteger) indexPath.row];
-        ShotDetailTableViewController *vc = (ShotDetailTableViewController *)[segue destinationViewController];
+        ShotDetailViewController *vc = (ShotDetailViewController *)[segue destinationViewController];
         vc.shot = shot;
     }
 }

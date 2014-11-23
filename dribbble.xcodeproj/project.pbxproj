@@ -26,8 +26,8 @@
 		6614F9A81A1045A6009C643E /* ShotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */; };
 		8A64FC0895AE8EF2A2F3DD46 /* libPods-dribbble.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79238DB5399A645295D3A342 /* libPods-dribbble.a */; };
 		DD5F90815D75D8B4C5E2DEAB /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5F94789CE455FBBE1286D6 /* user.json */; };
-		DD5F90A76740DC828FA59BA9 /* ShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9B6D63929E6439639C54 /* ShotDetailTableViewController.m */; };
-		DD5F91744D064167AA64A6C9 /* ShotHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F964D06422937FB4561DF /* ShotHeaderTableViewCell.m */; };
+		DD5F90A76740DC828FA59BA9 /* ShotDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9B6D63929E6439639C54 /* ShotDetailViewController.m */; };
+		DD5F91744D064167AA64A6C9 /* ShotHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F964D06422937FB4561DF /* ShotHeaderView.m */; };
 		DD5F9175B03AC72A0E0D9361 /* ShotImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9D184A5CEB523891FDD4 /* ShotImageTableViewCell.m */; };
 		DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F90FE0D50E280DB3D96CD /* MockAuthManager.m */; };
 		DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */; };
@@ -85,14 +85,14 @@
 		DD5F923F597AF2D00FDC95FF /* APIAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAuthManager.m; sourceTree = "<group>"; };
 		DD5F924A24E2EE825B7FF703 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
 		DD5F925400925F2684804453 /* ShotImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotImageTableViewCell.h; sourceTree = "<group>"; };
-		DD5F9301F61858C605831B75 /* ShotDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotDetailTableViewController.h; sourceTree = "<group>"; };
+		DD5F9301F61858C605831B75 /* ShotDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotDetailViewController.h; sourceTree = "<group>"; };
 		DD5F9327B8CBEEA296BE2550 /* shot.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = shot.json; sourceTree = "<group>"; };
-		DD5F936D4275674AD6D6F238 /* ShotHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotHeaderTableViewCell.h; sourceTree = "<group>"; };
+		DD5F936D4275674AD6D6F238 /* ShotHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotHeaderView.h; sourceTree = "<group>"; };
 		DD5F94789CE455FBBE1286D6 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = user.json; sourceTree = "<group>"; };
-		DD5F964D06422937FB4561DF /* ShotHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotHeaderTableViewCell.m; sourceTree = "<group>"; };
+		DD5F964D06422937FB4561DF /* ShotHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotHeaderView.m; sourceTree = "<group>"; };
 		DD5F97842B972FDF0B275759 /* MockStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockStore.h; path = data/MockStore.h; sourceTree = "<group>"; };
 		DD5F9A8A614A535859366096 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthManager.h; path = data/AuthManager.h; sourceTree = "<group>"; };
-		DD5F9B6D63929E6439639C54 /* ShotDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotDetailTableViewController.m; sourceTree = "<group>"; };
+		DD5F9B6D63929E6439639C54 /* ShotDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotDetailViewController.m; sourceTree = "<group>"; };
 		DD5F9C67F12BBF86306D218F /* MockAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAuthManager.h; sourceTree = "<group>"; };
 		DD5F9D184A5CEB523891FDD4 /* ShotImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotImageTableViewCell.m; sourceTree = "<group>"; };
 		DD5F9D82C2881BD76E12E6B2 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 				6614F9921A0FD06E009C643E /* ShotsViewController.m */,
 				6614F99A1A0FE8E3009C643E /* AuthViewController.h */,
 				6614F99B1A0FE8E3009C643E /* AuthViewController.m */,
-				DD5F9B6D63929E6439639C54 /* ShotDetailTableViewController.m */,
-				DD5F9301F61858C605831B75 /* ShotDetailTableViewController.h */,
+				DD5F9B6D63929E6439639C54 /* ShotDetailViewController.m */,
+				DD5F9301F61858C605831B75 /* ShotDetailViewController.h */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -255,8 +255,8 @@
 			children = (
 				6614F9A61A1045A6009C643E /* ShotCollectionViewCell.h */,
 				6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */,
-				DD5F964D06422937FB4561DF /* ShotHeaderTableViewCell.m */,
-				DD5F936D4275674AD6D6F238 /* ShotHeaderTableViewCell.h */,
+				DD5F964D06422937FB4561DF /* ShotHeaderView.m */,
+				DD5F936D4275674AD6D6F238 /* ShotHeaderView.h */,
 				DD5F9D184A5CEB523891FDD4 /* ShotImageTableViewCell.m */,
 				DD5F925400925F2684804453 /* ShotImageTableViewCell.h */,
 			);
@@ -448,8 +448,8 @@
 				DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */,
 				DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */,
 				DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */,
-				DD5F90A76740DC828FA59BA9 /* ShotDetailTableViewController.m in Sources */,
-				DD5F91744D064167AA64A6C9 /* ShotHeaderTableViewCell.m in Sources */,
+				DD5F90A76740DC828FA59BA9 /* ShotDetailViewController.m in Sources */,
+				DD5F91744D064167AA64A6C9 /* ShotHeaderView.m in Sources */,
 				DD5F9175B03AC72A0E0D9361 /* ShotImageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

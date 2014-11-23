@@ -5,7 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShotHeaderTableViewCell : UITableViewCell
+@interface ShotHeaderView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *author;
