@@ -16,7 +16,11 @@
     self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot[@"user"][@"username"]];
 
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    NSURL *url = [NSURL URLWithString:self.shot[@"images"][@"normal"]];
+    NSString *shotUrl = self.shot[@"images"][@"hidpi"];
+    if (!shotUrl || shotUrl == (id)[NSNull null]) {
+        shotUrl = self.shot[@"images"][@"normal"];
+    }
+    NSURL *url = [NSURL URLWithString:shotUrl];
     [manager downloadImageWithURL:url options:nil progress:nil
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                             if (image) {
