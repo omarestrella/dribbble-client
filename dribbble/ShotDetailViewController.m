@@ -3,9 +3,11 @@
 // Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import <SDWebImageManager.h>
 
 #import "ShotDetailViewController.h"
+#import "UIImage+ProportionalFill.h"
 
 @implementation ShotDetailViewController
 
@@ -20,15 +22,21 @@
                             if (image) {
                                 CGFloat scale = self.view.bounds.size.width / image.size.width;
                                 CGRect frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
+                                CGSize size = {image.size.width * scale, image.size.height * scale};
                                 self.shotImage.frame = frame;
-                                self.shotImage.image = image;
+                                UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+                                self.shotImage.image = resizedImage;
                             }
                         }];
+
+    [self.shotMeta setupData:self.shot];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
+
+#pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
@@ -39,8 +47,6 @@
 
     return cell;
 }
-
-#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
