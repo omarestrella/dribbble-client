@@ -33,17 +33,32 @@
                             }
                         }];
 
+    self.commentsTableView.dataSource = self;
+    self.commentsTableView.delegate = self;
+
     [self.shotMeta setupData:self.shot];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+    [self adjustCommentsHeight];
+}
+
+- (void)adjustCommentsHeight {
+    CGFloat height = self.commentsTableView.contentSize.height + 30;
+
+    [UIView animateWithDuration:0.25 animations:^{
+        self.commentsHeightConstraint.constant = height;
+        [self.view needsUpdateConstraints];
+    }];
+
 }
 
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
 
     if (!cell) {
         cell = [[UITableViewCell alloc] init];
@@ -53,15 +68,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }
-
-    return 12;
+    return 10;
 }
 
 #pragma mark - UITableViewDelegate
@@ -73,18 +84,20 @@
     return headerCell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 62;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Comments";
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        NSInteger width = [self.shot[@"width"] integerValue];
-        NSInteger height = [self.shot[@"height"] integerValue];
-        CGFloat scale = tableView.contentSize.width / width;
-        return height * scale;
-    }
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.font = [UIFont boldSystemFontOfSize:12];
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
     return 60;
 }
 

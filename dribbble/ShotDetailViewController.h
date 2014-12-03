@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet ShotHeaderView *shotHeader;
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet ShotMetaDetailsView *shotMeta;
+@property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeightConstraint;
 
 @end
