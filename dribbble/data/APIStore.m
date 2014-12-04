@@ -6,7 +6,10 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
+#import <Mantle.h>
+
 #import "APIStore.h"
+#import "ShotModel.h"
 
 @implementation APIStore
 
@@ -58,7 +61,7 @@
     NSString *url = @"shots";
 
     NSMutableDictionary *params = [@{
-        @"per_page" : @40
+        @"per_page" : @30
     } mutableCopy];
 
     if (page) {
@@ -66,8 +69,15 @@
     }
 
     return [self.manager GET:url parameters:params].then(^(NSArray *shots) {
+        NSMutableArray *shotModels = [NSMutableArray arrayWithCapacity:shots.count];
+        for (NSDictionary *shot in shots) {
+            ShotModel *model = [MTLJSONAdapter modelOfClass:ShotModel.class fromJSONDictionary:shot error:nil];
+            [shotModels addObject:model];
+        }
+
         self.cache[@"shots"] = shots;
-        return shots;
+
+        return shotModels;
     });
 }
 

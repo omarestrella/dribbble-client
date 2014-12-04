@@ -13,6 +13,7 @@
 #import "ShotsViewController.h"
 #import "ShotCollectionViewCell.h"
 #import "ShotDetailViewController.h"
+#import "UIImage+ProportionalFill.h"
 
 @interface ShotsViewController () {
     BOOL _loading;
@@ -82,7 +83,7 @@
 
     cell.imageView.image = [IonIcons imageWithIcon:icon_images
                                          iconColor:[UIColor lightGrayColor]
-                                          iconSize:72.0f
+                                          iconSize:70.0f
                                          imageSize:cell.frame.size];
 
     NSUInteger index = (NSUInteger) indexPath.row;
@@ -91,16 +92,21 @@
     NSString *path = shot[@"images"][@"teaser"];
     NSURL *url = [NSURL URLWithString:path];
 
-    [manager downloadImageWithURL:url options:nil progress:nil
+    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-                                                    if (image) {
-                                                        CGFloat scaleX = cell.bounds.size.width / image.size.width;
-                                                        CGFloat scaleY = cell.bounds.size.height / image.size.height;
-                                                        CGFloat scale = MIN(scaleX, scaleY);
-                                                        cell.imageView.frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
-                                                        cell.imageView.image = image;
-                                                    }
-                                                }];
+                                if (image) {
+                                    CGFloat scaleX = cell.bounds.size.width / image.size.width;
+                                    CGFloat scaleY = cell.bounds.size.height / image.size.height;
+                                    CGFloat scale = MIN(scaleX, scaleY);
+                                    CGSize size = {image.size.width * scale, image.size.height * scale};
+
+                                    cell.imageView.frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
+
+                                    UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+
+                                    cell.imageView.image = resizedImage;
+                                }
+                        }];
 
     return cell;
 }

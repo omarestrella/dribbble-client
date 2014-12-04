@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
-#import "MTLModel.h"
+#import <Mantle.h>
 
-@interface ShotModel : MTLModel
+@interface ShotModel : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSNumber *id;
 

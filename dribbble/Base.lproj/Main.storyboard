@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -35,6 +35,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="jnA-gb-Gff" kind="relationship" relationship="viewControllers" id="XEL-C3-j1r"/>
@@ -44,11 +45,11 @@
             </objects>
             <point key="canvasLocation" x="22" y="-28"/>
         </scene>
-        <!--Shots-->
+        <!--Navigation Controller-->
         <scene sceneID="IJf-oJ-QVE">
             <objects>
                 <navigationController id="jnA-gb-Gff" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shots" image="image@3x.png" id="wZ4-8O-65X"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="wZ4-8O-65X"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mec-GB-bD9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -79,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="NRG-94-a7F" style="IBUITableViewCellStyleDefault" id="mTy-0K-DI6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileData" textLabel="NRG-94-a7F" style="IBUITableViewCellStyleDefault" id="mTy-0K-DI6">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mTy-0K-DI6" id="P8M-zr-XPr">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -91,12 +92,6 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zfx-gn-QfA">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zfx-gn-QfA" id="zvG-lq-4CY">
-                                    <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -111,7 +106,7 @@
             </objects>
             <point key="canvasLocation" x="1426" y="-684"/>
         </scene>
-        <!--Shots-->
+        <!--Popular-->
         <scene sceneID="3fA-ok-0Qi">
             <objects>
                 <collectionViewController id="tsY-pV-iXU" customClass="ShotsViewController" sceneMemberID="viewController">
@@ -153,7 +148,7 @@
                             <outlet property="delegate" destination="tsY-pV-iXU" id="Ygo-zx-ReY"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Shots" id="mnD-Tf-6Zg">
+                    <navigationItem key="navigationItem" title="Popular" id="mnD-Tf-6Zg">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="40y-do-YnH">
                             <connections>
                                 <segue destination="1mm-c0-BuX" kind="show" id="mgm-2e-b3u"/>
@@ -371,27 +366,8 @@
             </objects>
             <point key="canvasLocation" x="1468" y="666"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Zgn-Kx-PX8">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2Ud-NQ-dvF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Nta-fH-8VT"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hif-8y-nUZ"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rdB-ei-ulL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BgS-3m-1P1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="eye@3x.png" width="66" height="66"/>
-        <image name="image@3x.png" width="66" height="66"/>
     </resources>
 </document>

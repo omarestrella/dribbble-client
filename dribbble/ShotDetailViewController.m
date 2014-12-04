@@ -21,7 +21,7 @@
         shotUrl = self.shot[@"images"][@"normal"];
     }
     NSURL *url = [NSURL URLWithString:shotUrl];
-    [manager downloadImageWithURL:url options:nil progress:nil
+    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                             if (image) {
                                 CGFloat scale = self.view.bounds.size.width / image.size.width;
