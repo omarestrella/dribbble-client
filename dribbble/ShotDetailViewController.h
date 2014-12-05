@@ -7,10 +7,11 @@
 
 #import "ShotHeaderView.h"
 #import "ShotMetaDetailsView.h"
+#import "ShotModel.h"
 
 @interface ShotDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak) NSDictionary *shot;
+@property (nonatomic, weak) ShotModel *shot;
 
 @property (weak, nonatomic) IBOutlet ShotHeaderView *shotHeader;
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;

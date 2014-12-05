@@ -45,12 +45,12 @@
     return ret;
 }
 
-- (void)setupData:(NSDictionary *)shot {
-    NSNumber *viewCount = shot[@"views_count"];
+- (void)setupData:(ShotModel *)shot {
+    NSNumber *viewCount = shot.views_count;
     NSString *views = [NSString stringWithFormat:@"%@ views", [self abbreviateNumber:viewCount]];
     self.views.text = views;
 
-    NSNumber *likeCount = shot[@"likes_count"];
+    NSNumber *likeCount = shot.likes_count;
     NSString *likes = [NSString stringWithFormat:@"%@ likes", [self abbreviateNumber:likeCount]];
     self.likes.text = likes;
 }

@@ -14,6 +14,7 @@
 #import "ShotCollectionViewCell.h"
 #import "ShotDetailViewController.h"
 #import "UIImage+ProportionalFill.h"
+#import "ShotModel.h"
 
 @interface ShotsViewController () {
     BOOL _loading;
@@ -87,9 +88,9 @@
                                          imageSize:cell.frame.size];
 
     NSUInteger index = (NSUInteger) indexPath.row;
-    NSDictionary *shot = self.shots[index];
+    ShotModel *shot = self.shots[index];
 
-    NSString *path = shot[@"images"][@"teaser"];
+    NSString *path = shot.images[@"teaser"];
     NSURL *url = [NSURL URLWithString:path];
 
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
@@ -150,7 +151,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"shotDetail"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
-        NSDictionary *shot = (self.shots)[(NSUInteger) indexPath.row];
+        ShotModel *shot = (self.shots)[(NSUInteger) indexPath.row];
         ShotDetailViewController *vc = (ShotDetailViewController *)[segue destinationViewController];
         vc.shot = shot;
     }

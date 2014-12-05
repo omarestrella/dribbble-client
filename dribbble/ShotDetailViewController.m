@@ -12,13 +12,13 @@
 @implementation ShotDetailViewController
 
 - (void)viewDidLoad {
-    self.shotHeader.title.text = self.shot[@"title"];
-    self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot[@"user"][@"username"]];
+    self.shotHeader.title.text = self.shot.title;
+    self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
 
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    NSString *shotUrl = self.shot[@"images"][@"hidpi"];
+    NSString *shotUrl = self.shot.images[@"hidpi"];
     if (!shotUrl || shotUrl == (id)[NSNull null]) {
-        shotUrl = self.shot[@"images"][@"normal"];
+        shotUrl = self.shot.images[@"normal"];
     }
     NSURL *url = [NSURL URLWithString:shotUrl];
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
@@ -79,8 +79,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ShotHeaderView *headerCell = (ShotHeaderView *)[tableView dequeueReusableCellWithIdentifier:@"headerCell"];
-    headerCell.title.text = self.shot[@"title"];
-    headerCell.author.text = [NSString stringWithFormat:@"by %@", self.shot[@"user"][@"username"]];
+    headerCell.title.text = self.shot.title;
+    headerCell.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
     return headerCell;
 }
 

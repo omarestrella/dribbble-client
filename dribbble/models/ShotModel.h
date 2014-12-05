@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
-#import <Mantle.h>
+#import <MTLModel.h>
+#import <MTLJSONAdapter.h>
 
-@interface ShotModel : MTLModel <MTLJSONSerializing>
+@interface ShotModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSNumber *id;
 
@@ -16,7 +17,7 @@
 @property (nonatomic, copy, readonly) NSDictionary *team;
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy, readonly) NSString *description;
+@property (nonatomic, copy, readonly) NSString *shotDescription;
 
 @property (nonatomic, copy, readonly) NSNumber *width;
 @property (nonatomic, copy, readonly) NSNumber *height;

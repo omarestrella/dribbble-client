@@ -5,12 +5,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ShotModel.h"
+
 @interface ShotMetaDetailsView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *views;
 
 @property (nonatomic, weak) IBOutlet UILabel *likes;
 
-- (void)setupData:(NSDictionary *)shot;
+- (void)setupData:(ShotModel *)shot;
 
 @end
