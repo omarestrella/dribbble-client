@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <PromiseKit-AFNetworking/AFNetworking+PromiseKit.h>
 
+#import "ShotModel.h"
+
 @interface Store : NSObject
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
@@ -22,5 +24,6 @@
 - (PMKPromise *)me;
 - (PMKPromise *)userForId:(NSNumber *)userId;
 - (PMKPromise *)shots:(int)page;
+- (PMKPromise *)commentsForShot:(ShotModel *)shot;
 
 @end

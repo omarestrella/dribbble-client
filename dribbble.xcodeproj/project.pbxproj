@@ -38,7 +38,7 @@
 		DD5F98E1AEC2E081E2C8E1D1 /* shot.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5F9327B8CBEEA296BE2550 /* shot.json */; };
 		DD5F99D6A642736729899284 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9B0F21B8F7A1B63B531B /* UIImage+Tint.m */; };
 		DD5F9A87097251C5020F94D8 /* MockStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F91A87EC17E4741A9456F /* MockStore.m */; };
-		DD5F9CFDE2D9123CA33C323B /* ShotImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F9A4D5120A2F69A7D4B50 /* ShotImageTableViewCell.m */; };
+		DD5F9BFC8D953A7DF3012DA1 /* ShotCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F939E7592E0B08760D364 /* ShotCommentCell.m */; };
 		DD5F9DD77CF46073B4E269D6 /* ShotMetaDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F95DB22983FDE06C4A4D2 /* ShotMetaDetailsView.m */; };
 		DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F924A24E2EE825B7FF703 /* AppConstants.m */; };
 /* End PBXBuildFile section */
@@ -98,13 +98,13 @@
 		DD5F92773EBDBC6EFC8CBCD2 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		DD5F9301F61858C605831B75 /* ShotDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotDetailViewController.h; sourceTree = "<group>"; };
 		DD5F9327B8CBEEA296BE2550 /* shot.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = shot.json; sourceTree = "<group>"; };
+		DD5F939E7592E0B08760D364 /* ShotCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotCommentCell.m; sourceTree = "<group>"; };
 		DD5F9464F364DB97A020D617 /* UIImage+ProportionalFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ProportionalFill.m"; sourceTree = "<group>"; };
 		DD5F94789CE455FBBE1286D6 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = user.json; sourceTree = "<group>"; };
+		DD5F9522FA7196ADB3C20EC5 /* ShotCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotCommentCell.h; sourceTree = "<group>"; };
 		DD5F95DB22983FDE06C4A4D2 /* ShotMetaDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotMetaDetailsView.m; sourceTree = "<group>"; };
 		DD5F95EA28C4ECC74F0EDEA2 /* ShotHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotHeaderView.h; sourceTree = "<group>"; };
 		DD5F97842B972FDF0B275759 /* MockStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockStore.h; path = data/MockStore.h; sourceTree = "<group>"; };
-		DD5F9A2A6F0798EC9C55D9FE /* ShotImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotImageTableViewCell.h; sourceTree = "<group>"; };
-		DD5F9A4D5120A2F69A7D4B50 /* ShotImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotImageTableViewCell.m; sourceTree = "<group>"; };
 		DD5F9A8A614A535859366096 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthManager.h; path = data/AuthManager.h; sourceTree = "<group>"; };
 		DD5F9B0F21B8F7A1B63B531B /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		DD5F9B6D63929E6439639C54 /* ShotDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotDetailViewController.m; sourceTree = "<group>"; };
@@ -327,11 +327,11 @@
 			isa = PBXGroup;
 			children = (
 				DD5F95EA28C4ECC74F0EDEA2 /* ShotHeaderView.h */,
-				DD5F9A4D5120A2F69A7D4B50 /* ShotImageTableViewCell.m */,
 				DD5F918193B9006D81B10A7A /* ShotHeaderView.m */,
-				DD5F9A2A6F0798EC9C55D9FE /* ShotImageTableViewCell.h */,
 				DD5F95DB22983FDE06C4A4D2 /* ShotMetaDetailsView.m */,
 				DD5F9029D564E298E2BA46DA /* ShotMetaDetailsView.h */,
+				DD5F939E7592E0B08760D364 /* ShotCommentCell.m */,
+				DD5F9522FA7196ADB3C20EC5 /* ShotCommentCell.h */,
 			);
 			name = detail;
 			sourceTree = "<group>";
@@ -494,9 +494,9 @@
 				DD5F90A76740DC828FA59BA9 /* ShotDetailViewController.m in Sources */,
 				DD5F9254B74BB12F80A7BA50 /* UIImage+ProportionalFill.m in Sources */,
 				DD5F99D6A642736729899284 /* UIImage+Tint.m in Sources */,
-				DD5F9CFDE2D9123CA33C323B /* ShotImageTableViewCell.m in Sources */,
 				DD5F90B8E5EE3D8A1819CBC1 /* ShotHeaderView.m in Sources */,
 				DD5F9DD77CF46073B4E269D6 /* ShotMetaDetailsView.m in Sources */,
+				DD5F9BFC8D953A7DF3012DA1 /* ShotCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

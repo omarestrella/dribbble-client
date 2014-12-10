@@ -9,6 +9,8 @@
 #import <MTLModel.h>
 #import <MTLJSONAdapter.h>
 
+@class PMKPromise;
+
 @interface ShotModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSNumber *id;
@@ -43,5 +45,7 @@
 @property (nonatomic, copy) NSString *rebounds_url;
 
 @property (nonatomic, copy, readonly) NSArray *tags;
+
+- (PMKPromise *)comments;
 
 @end

@@ -5,9 +5,12 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <SDWebImageManager.h>
+#import <PromiseKit/Promise.h>
 
 #import "ShotDetailViewController.h"
 #import "UIImage+ProportionalFill.h"
+#import "UIImage+GIF.h"
+#import "ShotCommentCell.h"
 
 @implementation ShotDetailViewController
 
@@ -32,6 +35,12 @@
                                 self.shotImage.image = resizedImage;
                             }
                         }];
+
+    [self.shot comments].then(^(NSArray *comments) {
+        self.comments = comments;
+
+        [self.commentsTableView reloadData];
+    });
 
     self.commentsTableView.dataSource = self;
     self.commentsTableView.delegate = self;
@@ -58,10 +67,19 @@
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+    ShotCommentCell *cell = (ShotCommentCell *)[tableView dequeueReusableCellWithIdentifier:@"commentCell"];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] init];
+        cell = [[ShotCommentCell alloc] init];
+    }
+
+    if (self.comments && indexPath.row < self.comments.count) {
+        NSDictionary *comment = self.comments[indexPath.row];
+        NSString *body = comment[@"body"];
+        body = [body stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
+        body = [body stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+        body = [body stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+        cell.comment.text = body;
     }
 
     return cell;
@@ -72,7 +90,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (self.comments) {
+        return self.comments.count;
+    }
+
+    return 0;
 }
 
 #pragma mark - UITableViewDelegate

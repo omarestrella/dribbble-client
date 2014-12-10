@@ -81,6 +81,14 @@
     });
 }
 
+- (PMKPromise *)commentsForShot:(ShotModel *)shot {
+    return [self.manager GET:shot.comments_url parameters:nil].then(^(NSArray *comments) {
+        self.cache[@"comments"] = comments;
+
+        return comments;
+    });
+}
+
 #pragma mark - Cache
 
 - (void)setupCache {
