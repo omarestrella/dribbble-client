@@ -25,7 +25,14 @@
     }
 
     __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
-    [self.shotImage drawRect:frame];
+    CGSize loadingSize = {frame.size.width, frame.size.height};
+    UIImage *loadingImage = [self.collectionImage imageToFitSize:loadingSize
+                                                  method:MGImageResizeScale];
+    UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    effectView.frame = frame;
+    self.shotImage.image = loadingImage;
+    [self.shotImage addSubview:effectView];
 
     NSURL *url = [NSURL URLWithString:shotUrl];
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
@@ -36,6 +43,7 @@
                                 CGSize size = {image.size.width * scale, image.size.height * scale};
                                 self.shotImage.frame = frame;
                                 UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+                                [effectView removeFromSuperview];
                                 self.shotImage.image = resizedImage;
                             }
                         }];

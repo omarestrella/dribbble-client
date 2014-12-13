@@ -153,6 +153,7 @@
         NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
         ShotModel *shot = (self.shots)[(NSUInteger) indexPath.row];
         ShotDetailViewController *vc = (ShotDetailViewController *)[segue destinationViewController];
+        vc.collectionImage = ((ShotCollectionViewCell *)sender).imageView.image;
         vc.shot = shot;
     }
 }

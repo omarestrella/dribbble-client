@@ -14,6 +14,8 @@
 @property (nonatomic, weak) NSArray *comments;
 @property (nonatomic, weak) ShotModel *shot;
 
+@property (nonatomic, weak) UIImage *collectionImage;
+
 @property (weak, nonatomic) IBOutlet ShotHeaderView *shotHeader;
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet ShotMetaDetailsView *shotMeta;
