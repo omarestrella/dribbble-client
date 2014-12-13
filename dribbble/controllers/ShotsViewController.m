@@ -78,10 +78,8 @@
 #pragma mark - UICollectionViewDataSource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-
-    ShotCollectionViewCell *cell = (ShotCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"shot" forIndexPath:indexPath];
-
+    ShotCollectionViewCell *cell = (ShotCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"shot"
+                                                                                                       forIndexPath:indexPath];
     cell.imageView.image = [IonIcons imageWithIcon:icon_images
                                          iconColor:[UIColor lightGrayColor]
                                           iconSize:70.0f
@@ -90,24 +88,7 @@
     NSUInteger index = (NSUInteger) indexPath.row;
     ShotModel *shot = self.shots[index];
 
-    NSString *path = shot.images[@"teaser"];
-    NSURL *url = [NSURL URLWithString:path];
-
-    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
-                        completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-                                if (image) {
-                                    CGFloat scaleX = cell.bounds.size.width / image.size.width;
-                                    CGFloat scaleY = cell.bounds.size.height / image.size.height;
-                                    CGFloat scale = MIN(scaleX, scaleY);
-                                    CGSize size = {image.size.width * scale, image.size.height * scale};
-
-                                    cell.imageView.frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
-
-                                    UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
-
-                                    cell.imageView.image = resizedImage;
-                                }
-                        }];
+    [cell handleShot:shot];
 
     return cell;
 }

@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SDWebImageDownloaderOperation.h"
+#import "ShotModel.h"
+
 @interface ShotCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) SDWebImageDownloaderOperation *currentOperation;
+
+- (void)handleShot:(ShotModel *)shot;
 
 @end

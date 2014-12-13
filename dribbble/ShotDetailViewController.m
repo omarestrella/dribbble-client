@@ -46,7 +46,6 @@
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground
                          progress:(SDWebImageDownloaderProgressBlock) ^(NSInteger receivedSize, NSInteger expectedSize) {
                              float progress = receivedSize / (float)expectedSize;
-                             NSLog(@"%f", progress);
                              [progressView setProgress:progress animated:YES];
                          }
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {

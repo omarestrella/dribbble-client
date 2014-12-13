@@ -72,7 +72,9 @@
         NSMutableArray *shotModels = [NSMutableArray arrayWithCapacity:shots.count];
         for (NSDictionary *shot in shots) {
             ShotModel *model = [MTLJSONAdapter modelOfClass:ShotModel.class fromJSONDictionary:shot error:nil];
-            [shotModels addObject:model];
+            if(![shotModels containsObject:model]) {
+                [shotModels addObject:model];
+            }
         }
 
         self.cache[@"shots"] = shots;
