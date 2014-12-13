@@ -6,10 +6,10 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <SDWebImageManager.h>
 #import <PromiseKit/Promise.h>
+#import <MRProgress/MRProgress.h>
 
 #import "ShotDetailViewController.h"
 #import "UIImage+ProportionalFill.h"
-#import "UIImage+GIF.h"
 #import "ShotCommentCell.h"
 
 @implementation ShotDetailViewController
@@ -28,14 +28,27 @@
     CGSize loadingSize = {frame.size.width, frame.size.height};
     UIImage *loadingImage = [self.collectionImage imageToFitSize:loadingSize
                                                           method:MGImageResizeScale];
-    UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     effectView.frame = frame;
     self.shotImage.image = loadingImage;
     [self.shotImage addSubview:effectView];
 
     NSURL *url = [NSURL URLWithString:shotUrl];
-    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
+
+    CGRect loadingFrame = CGRectMake(self.view.frame.size.width / 2 - 40.f, self.view.frame.size.width / 4,
+        80.f, 80.f);
+    MRCircularProgressView *progressView = [[MRCircularProgressView alloc] initWithFrame:loadingFrame];
+    progressView.valueLabel.textColor = [UIColor whiteColor];
+    progressView.tintColor = [UIColor whiteColor];
+    [self.shotImage addSubview:progressView];
+
+    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground
+                         progress:(SDWebImageDownloaderProgressBlock) ^(NSInteger receivedSize, NSInteger expectedSize) {
+                             float progress = receivedSize / (float)expectedSize;
+                             NSLog(@"%f", progress);
+                             [progressView setProgress:progress animated:YES];
+                         }
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                             if (image) {
                                 CGFloat scale = self.view.bounds.size.width / image.size.width;
@@ -43,13 +56,18 @@
                                 CGSize size = {image.size.width * scale, image.size.height * scale};
                                 self.shotImage.frame = frame;
                                 UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+
+                                [MRProgressOverlayView dismissOverlayForView:self.shotImage animated:YES];
                                 [UIView animateWithDuration:0.4f
                                                  animations:^{
                                                      effectView.alpha = 0.0f;
+                                                     progressView.alpha = 0.0f;
                                                  }
                                                  completion:^(BOOL complete) {
                                                      [effectView removeFromSuperview];
+                                                     [progressView removeFromSuperview];
                                                  }];
+
                                 self.shotImage.image = resizedImage;
                             }
                         }];
