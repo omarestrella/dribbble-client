@@ -25,7 +25,7 @@
     }
 
     __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
-    self.shotImage.frame = frame;
+    [self.shotImage drawRect:frame];
 
     NSURL *url = [NSURL URLWithString:shotUrl];
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
@@ -80,11 +80,16 @@
     }
 
     if (self.comments && indexPath.row < self.comments.count) {
+        NSRange range;
         NSDictionary *comment = self.comments[indexPath.row];
         NSString *body = comment[@"body"];
 
-        cell.comment.text = body;
+        body = [body stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
+        while ((range = [body rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {
+            body = [body stringByReplacingCharactersInRange:range withString:@""];
+        }
 
+        cell.comment.text = body;
     }
 
     if (indexPath.row % 2 == 0) {
