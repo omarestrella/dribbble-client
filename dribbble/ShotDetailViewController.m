@@ -20,15 +20,19 @@
 
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     NSString *shotUrl = self.shot.images[@"hidpi"];
-    if (!shotUrl || shotUrl == (id)[NSNull null]) {
+    if (!shotUrl || shotUrl == (id) [NSNull null]) {
         shotUrl = self.shot.images[@"normal"];
     }
+
+    __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
+    self.shotImage.frame = frame;
+
     NSURL *url = [NSURL URLWithString:shotUrl];
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                             if (image) {
                                 CGFloat scale = self.view.bounds.size.width / image.size.width;
-                                CGRect frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
+                                frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
                                 CGSize size = {image.size.width * scale, image.size.height * scale};
                                 self.shotImage.frame = frame;
                                 UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
@@ -40,22 +44,24 @@
         self.comments = comments;
 
         [self.commentsTableView reloadData];
+
+        [self adjustCommentsHeight];
     });
 
     self.commentsTableView.dataSource = self;
     self.commentsTableView.delegate = self;
 
     [self.shotMeta setupData:self.shot];
+
+//    self.commentsTableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
-    [self adjustCommentsHeight];
 }
 
 - (void)adjustCommentsHeight {
-    CGFloat height = self.commentsTableView.contentSize.height + 30;
+    CGFloat height = self.commentsTableView.contentSize.height + 100;
 
     [UIView animateWithDuration:0.25 animations:^{
         self.commentsHeightConstraint.constant = height;
@@ -67,7 +73,7 @@
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShotCommentCell *cell = (ShotCommentCell *)[tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+    ShotCommentCell *cell = (ShotCommentCell *) [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
 
     if (!cell) {
         cell = [[ShotCommentCell alloc] init];
@@ -76,10 +82,15 @@
     if (self.comments && indexPath.row < self.comments.count) {
         NSDictionary *comment = self.comments[indexPath.row];
         NSString *body = comment[@"body"];
-        body = [body stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
-        body = [body stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
-        body = [body stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+
         cell.comment.text = body;
+
+    }
+
+    if (indexPath.row % 2 == 0) {
+        UIColor *color = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.2];
+        cell.backgroundColor = color;
+        cell.comment.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
     }
 
     return cell;
@@ -99,28 +110,26 @@
 
 #pragma mark - UITableViewDelegate
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    ShotHeaderView *headerCell = (ShotHeaderView *)[tableView dequeueReusableCellWithIdentifier:@"headerCell"];
-    headerCell.title.text = self.shot.title;
-    headerCell.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
-    return headerCell;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    ShotHeaderView *headerCell = (ShotHeaderView *) [tableView dequeueReusableCellWithIdentifier:@"headerCell"];
+//    headerCell.title.text = self.shot.title;
+//    headerCell.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
+//    headerCell.layoutMargins = UIEdgeInsetsMake(0, 20, 0, 0);
+//    return headerCell;
+//}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Comments";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *) view;
     header.textLabel.font = [UIFont boldSystemFontOfSize:12];
+//    header.layoutMargins = UIEdgeInsetsMake(0, 20, 0, 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
-    return 60;
+    return 40;
 }
 
 @end

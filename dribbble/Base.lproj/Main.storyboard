@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Auth View Controller-->
@@ -226,7 +225,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-SL-MjY">
                                 <rect key="frame" x="0.0" y="128" width="600" height="423"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QW8-hm-6zR">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QW8-hm-6zR">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" placeholder="YES" id="0Nx-lC-guw"/>
@@ -290,35 +289,37 @@
                                             <outlet property="views" destination="NW9-Yy-SUS" id="h5p-UB-4qC"/>
                                         </connections>
                                     </view>
-                                    <tableView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Gn-Dtl">
+                                    <tableView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Gn-Dtl">
                                         <rect key="frame" x="0.0" y="207" width="300" height="208"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="208" id="1hy-0k-fPt"/>
                                             <constraint firstAttribute="width" constant="300" placeholder="YES" id="m60-fs-RLw"/>
                                         </constraints>
+                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="75" id="kEX-ls-1Tp" customClass="ShotCommentCell">
+                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="75" id="kEX-ls-1Tp" customClass="ShotCommentCell">
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kEX-ls-1Tp" id="KIY-GO-YA3">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-XV-7UT">
-                                                            <rect key="frame" x="8" y="8" width="284" height="58"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRN-Hq-vCq">
+                                                            <rect key="frame" x="10" y="10" width="280" height="55"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="WUY-XV-7UT" secondAttribute="bottom" id="bDg-9e-UpM"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="WUY-XV-7UT" secondAttribute="trailing" id="gvc-vo-0wC"/>
-                                                        <constraint firstItem="WUY-XV-7UT" firstAttribute="leading" secondItem="KIY-GO-YA3" secondAttribute="leadingMargin" id="gzx-NU-RR6"/>
-                                                        <constraint firstItem="WUY-XV-7UT" firstAttribute="top" secondItem="KIY-GO-YA3" secondAttribute="topMargin" id="uz6-M4-Loc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cRN-Hq-vCq" secondAttribute="bottom" constant="10" id="G7r-nB-5PR"/>
+                                                        <constraint firstItem="cRN-Hq-vCq" firstAttribute="leading" secondItem="KIY-GO-YA3" secondAttribute="leading" constant="10" id="PtK-5m-Lyz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cRN-Hq-vCq" secondAttribute="trailing" constant="10" id="kU3-8Q-Bcb"/>
+                                                        <constraint firstItem="cRN-Hq-vCq" firstAttribute="top" secondItem="KIY-GO-YA3" secondAttribute="top" constant="10" id="tTd-yS-nBQ"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
-                                                    <outlet property="comment" destination="WUY-XV-7UT" id="NXd-dm-KWA"/>
+                                                    <outlet property="comment" destination="cRN-Hq-vCq" id="tSb-Rz-Nf5"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -374,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vo3-Os-4zq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="666"/>
+            <point key="canvasLocation" x="1468" y="687"/>
         </scene>
     </scenes>
     <resources>
