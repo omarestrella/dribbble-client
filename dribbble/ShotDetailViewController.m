@@ -27,7 +27,7 @@
     __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
     CGSize loadingSize = {frame.size.width, frame.size.height};
     UIImage *loadingImage = [self.collectionImage imageToFitSize:loadingSize
-                                                  method:MGImageResizeScale];
+                                                          method:MGImageResizeScale];
     UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     effectView.frame = frame;
@@ -43,7 +43,13 @@
                                 CGSize size = {image.size.width * scale, image.size.height * scale};
                                 self.shotImage.frame = frame;
                                 UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
-                                [effectView removeFromSuperview];
+                                [UIView animateWithDuration:0.4f
+                                                 animations:^{
+                                                     effectView.alpha = 0.0f;
+                                                 }
+                                                 completion:^(BOOL complete) {
+                                                     [effectView removeFromSuperview];
+                                                 }];
                                 self.shotImage.image = resizedImage;
                             }
                         }];
@@ -60,8 +66,6 @@
     self.commentsTableView.delegate = self;
 
     [self.shotMeta setupData:self.shot];
-
-//    self.commentsTableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {

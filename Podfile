@@ -9,6 +9,7 @@ target 'dribbble' do
   pod "Mantle", "~> 1.5.1"
   pod "SDWebImage", "~> 3.6"
   pod "FLAnimatedImage", "~> 1.0.4"
+  pod "MRProgress", "~> 0.8"
   pod "ionicons"
   pod "PromiseKit"
   pod "PromiseKit-AFNetworking"
