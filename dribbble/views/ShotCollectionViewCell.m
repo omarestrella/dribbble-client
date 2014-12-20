@@ -17,39 +17,43 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
 
-    [self.currentOperation cancel];
-    self.imageView.image = nil;
-    self.imageView.image = [IonIcons imageWithIcon:icon_images
-                                         iconColor:[UIColor lightGrayColor]
-                                          iconSize:72.0f
-                                         imageSize:self.frame.size];
+    if (self.currentOperation) {
+        [self.currentOperation cancel];
+    }
 }
 
 - (void)handleShot:(ShotModel *)shot {
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
 
-    NSString *path = shot.images[@"teaser"];
+    NSString *path = shot.images[@"normal"];
     NSURL *url = [NSURL URLWithString:path];
 
     self.currentOperation = [manager downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil
-                        completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-                            if (image) {
-                                if ([path isEqualToString:shot.images[@"teaser"]]) {
-                                    CGFloat scaleX = self.bounds.size.width / image.size.width;
-                                    CGFloat scaleY = self.bounds.size.height / image.size.height;
-                                    CGFloat scale = MIN(scaleX, scaleY);
-                                    CGSize size = {image.size.width * scale, image.size.height * scale};
+                    completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                        if (image) {
+                            if ([path isEqualToString:shot.images[@"normal"]]) {
+                                self.imageView.layer.opacity = 0.0;
+                                [self sendSubviewToBack:self.imageView];
+                                
+                                CGFloat scaleX = self.bounds.size.width / image.size.width;
+                                CGFloat scaleY = self.bounds.size.height / image.size.height;
+                                CGFloat scale = MIN(scaleX, scaleY);
+                                CGSize size = {image.size.width * scale, image.size.height * scale};
 
-                                    self.imageView.frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
+                                self.imageView.frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
 
-                                    UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+                                UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
 
-                                    self.imageView.image = resizedImage;
-                                } else {
-                                    NSLog(@"no match");
-                                }
+                                self.imageView.image = resizedImage;
+                                
+                                [UIView animateWithDuration:0.5 animations:^{
+                                    self.imageView.layer.opacity = 1.0;
+                                }];
+                            } else {
+                                NSLog(@"no match");
                             }
-                        }];
+                        }
+                    }];
 }
 
 @end

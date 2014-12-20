@@ -74,8 +74,6 @@
     [self.shot comments].then(^(NSArray *comments) {
         self.comments = comments;
 
-        NSLog(@"%d", self.comments.count);
-
         [self.commentsTableView reloadData];
 
         [self adjustCommentsHeight];

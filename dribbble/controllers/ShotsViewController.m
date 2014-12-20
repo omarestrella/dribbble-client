@@ -78,13 +78,9 @@
 #pragma mark - UICollectionViewDataSource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ShotCollectionViewCell *cell = (ShotCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"shot"
-                                                                                                       forIndexPath:indexPath];
-    cell.imageView.image = [IonIcons imageWithIcon:icon_images
-                                         iconColor:[UIColor lightGrayColor]
-                                          iconSize:70.0f
-                                         imageSize:cell.frame.size];
-
+    ShotCollectionViewCell *cell = (ShotCollectionViewCell *)[collectionView
+                                                              dequeueReusableCellWithReuseIdentifier:@"shot"
+                                                              forIndexPath:indexPath];
     NSUInteger index = (NSUInteger) indexPath.row;
     ShotModel *shot = self.shots[index];
 
@@ -111,7 +107,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = self.collectionView.contentSize.width;
-    CGFloat size = width / 4;
+    CGFloat size = width / 2;
     return CGSizeMake(size, size / (4.0f/3.0f));
 }
 
