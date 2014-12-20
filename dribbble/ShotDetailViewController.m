@@ -74,6 +74,8 @@
     [self.shot comments].then(^(NSArray *comments) {
         self.comments = comments;
 
+        NSLog(@"%d", self.comments.count);
+
         [self.commentsTableView reloadData];
 
         [self adjustCommentsHeight];
@@ -90,13 +92,14 @@
 }
 
 - (void)adjustCommentsHeight {
-    CGFloat height = self.commentsTableView.contentSize.height + 100;
+    CGFloat animHeight = self.commentsTableView.contentSize.height + 500;
 
     [UIView animateWithDuration:0.25 animations:^{
-        self.commentsHeightConstraint.constant = height;
-        [self.view needsUpdateConstraints];
+        self.commentsHeightConstraint.constant = animHeight;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL completed) {
+        self.commentsHeightConstraint.constant = self.commentsTableView.contentSize.height;
     }];
-
 }
 
 #pragma mark - UITableViewDataSource
