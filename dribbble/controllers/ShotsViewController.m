@@ -107,8 +107,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = self.collectionView.contentSize.width;
-    CGFloat size = width / 2;
-    return CGSizeMake(size, size / (4.0f/3.0f));
+    CGFloat size = width / 3;
+    return CGSizeMake(size - 8, size / (4.0f/3.0f) - 8);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -116,11 +116,11 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    return 8;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    return UIEdgeInsetsMake(8, 8, 8, 8);
 }
 
 #pragma mark - Navigation

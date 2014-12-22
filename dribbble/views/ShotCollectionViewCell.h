@@ -14,6 +14,7 @@
 @interface ShotCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+
 @property (nonatomic, weak) SDWebImageDownloaderOperation *currentOperation;
 
 - (void)handleShot:(ShotModel *)shot;

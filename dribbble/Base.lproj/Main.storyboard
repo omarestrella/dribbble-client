@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Auth View Controller-->
@@ -129,13 +128,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6y-iO-MLg">
-                                            <rect key="frame" x="8" y="168" width="184" height="24"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="4YT-Vv-H6c"/>
-                                            </constraints>
-                                        </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="131" placeholderIntrinsicHeight="131" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-dO-Ay4">
                                             <rect key="frame" x="35" y="34" width="131" height="131"/>
                                         </imageView>
@@ -143,10 +135,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="c6y-iO-MLg" secondAttribute="bottom" id="6h7-BG-5fx"/>
-                                    <constraint firstItem="c6y-iO-MLg" firstAttribute="leading" secondItem="HQs-L3-Tvx" secondAttribute="leadingMargin" id="LNU-vR-wvu"/>
                                     <constraint firstAttribute="centerY" secondItem="QHp-dO-Ay4" secondAttribute="centerY" id="fdf-pq-st6"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="c6y-iO-MLg" secondAttribute="trailing" id="hLW-Lm-Cxr"/>
                                     <constraint firstItem="QHp-dO-Ay4" firstAttribute="centerX" secondItem="HQs-L3-Tvx" secondAttribute="centerX" id="jcw-dL-6sF"/>
                                 </constraints>
                                 <connections>
