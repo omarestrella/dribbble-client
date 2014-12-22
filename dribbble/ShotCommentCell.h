@@ -9,5 +9,7 @@
 @interface ShotCommentCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *comment;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end

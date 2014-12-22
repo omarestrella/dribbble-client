@@ -81,6 +81,7 @@
     ShotCollectionViewCell *cell = (ShotCollectionViewCell *)[collectionView
                                                               dequeueReusableCellWithReuseIdentifier:@"shot"
                                                               forIndexPath:indexPath];
+
     NSUInteger index = (NSUInteger) indexPath.row;
     ShotModel *shot = self.shots[index];
 

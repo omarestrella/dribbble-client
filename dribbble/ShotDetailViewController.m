@@ -18,58 +18,7 @@
     self.shotHeader.title.text = self.shot.title;
     self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
 
-    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    NSString *shotUrl = self.shot.images[@"hidpi"];
-    if (!shotUrl || shotUrl == (id) [NSNull null]) {
-        shotUrl = self.shot.images[@"normal"];
-    }
-
-    __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
-    CGSize loadingSize = {frame.size.width, frame.size.height};
-    UIImage *loadingImage = [self.collectionImage imageToFitSize:loadingSize
-                                                          method:MGImageResizeScale];
-    UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-    effectView.frame = frame;
-    self.shotImage.image = loadingImage;
-    [self.shotImage addSubview:effectView];
-
-    NSURL *url = [NSURL URLWithString:shotUrl];
-
-    CGRect loadingFrame = CGRectMake(self.view.frame.size.width / 2 - 40.f, self.view.frame.size.width / 4,
-        80.f, 80.f);
-    MRCircularProgressView *progressView = [[MRCircularProgressView alloc] initWithFrame:loadingFrame];
-    progressView.valueLabel.textColor = [UIColor whiteColor];
-    progressView.tintColor = [UIColor whiteColor];
-    [self.shotImage addSubview:progressView];
-
-    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground
-                         progress:(SDWebImageDownloaderProgressBlock) ^(NSInteger receivedSize, NSInteger expectedSize) {
-                             float progress = receivedSize / (float)expectedSize;
-                             [progressView setProgress:progress animated:YES];
-                         }
-                        completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-                            if (image) {
-                                CGFloat scale = self.view.bounds.size.width / image.size.width;
-                                frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
-                                CGSize size = {image.size.width * scale, image.size.height * scale};
-                                self.shotImage.frame = frame;
-                                UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
-
-                                [MRProgressOverlayView dismissOverlayForView:self.shotImage animated:YES];
-                                [UIView animateWithDuration:0.4f
-                                                 animations:^{
-                                                     effectView.alpha = 0.0f;
-                                                     progressView.alpha = 0.0f;
-                                                 }
-                                                 completion:^(BOOL complete) {
-                                                     [effectView removeFromSuperview];
-                                                     [progressView removeFromSuperview];
-                                                 }];
-
-                                self.shotImage.image = resizedImage;
-                            }
-                        }];
+    [self handleImage];
 
     [self.shot comments].then(^(NSArray *comments) {
         self.comments = comments;
@@ -87,6 +36,61 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
+
+- (void)handleImage {
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    NSString *shotUrl = self.shot.images[@"hidpi"];
+    if (!shotUrl || shotUrl == (id) [NSNull null]) {
+        shotUrl = self.shot.images[@"normal"];
+    }
+    
+    __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
+    CGSize loadingSize = {frame.size.width, frame.size.height};
+    UIImage *loadingImage = [self.collectionImage imageToFitSize:loadingSize
+                                                          method:MGImageResizeScale];
+    UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    effectView.frame = frame;
+    self.shotImage.image = loadingImage;
+    [self.shotImage addSubview:effectView];
+    
+    NSURL *url = [NSURL URLWithString:shotUrl];
+    
+    CGRect loadingFrame = CGRectMake(self.view.frame.size.width / 2 - 40.f, self.view.frame.size.width / 4,
+                                     80.f, 80.f);
+    MRCircularProgressView *progressView = [[MRCircularProgressView alloc] initWithFrame:loadingFrame];
+    progressView.valueLabel.textColor = [UIColor whiteColor];
+    progressView.tintColor = [UIColor whiteColor];
+    [self.shotImage addSubview:progressView];
+    
+    [manager downloadImageWithURL:url options:SDWebImageContinueInBackground
+                         progress:(SDWebImageDownloaderProgressBlock) ^(NSInteger receivedSize, NSInteger expectedSize) {
+                             float progress = receivedSize / (float)expectedSize;
+                             [progressView setProgress:progress animated:YES];
+                         }
+                        completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                            if (image) {
+                                CGFloat scale = self.view.bounds.size.width / image.size.width;
+                                frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
+                                CGSize size = {image.size.width * scale, image.size.height * scale};
+                                self.shotImage.frame = frame;
+                                UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+                                
+                                [MRProgressOverlayView dismissOverlayForView:self.shotImage animated:YES];
+                                [UIView animateWithDuration:0.4f
+                                                 animations:^{
+                                                     effectView.alpha = 0.0f;
+                                                     progressView.alpha = 0.0f;
+                                                 }
+                                                 completion:^(BOOL complete) {
+                                                     [effectView removeFromSuperview];
+                                                     [progressView removeFromSuperview];
+                                                 }];
+                                
+                                self.shotImage.image = resizedImage;
+                            }
+                        }];
 }
 
 - (void)adjustCommentsHeight {
@@ -110,16 +114,39 @@
     }
 
     if (self.comments && indexPath.row < self.comments.count) {
-        NSRange range;
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+
         NSDictionary *comment = self.comments[indexPath.row];
         NSString *body = comment[@"body"];
+        NSString *name = comment[@"user"][@"name"];
+        NSRange range;
 
+        NSLog(@"%@", comment);
+        
         body = [body stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
         while ((range = [body rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {
             body = [body stringByReplacingCharactersInRange:range withString:@""];
         }
 
         cell.comment.text = body;
+        cell.name.text = [name uppercaseString];
+        
+        NSString *profileUrl = comment[@"user"][@"avatar_url"];
+        NSURL *url = [NSURL URLWithString:profileUrl];
+
+        [manager downloadImageWithURL:url options:SDWebImageContinueInBackground
+                             progress:(SDWebImageDownloaderProgressBlock) ^(NSInteger receivedSize, NSInteger expectedSize) {}
+                            completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                if (image) {
+                                    CGRect frame = CGRectMake(0, 0, 32, 32);
+                                    CGSize size = {32, 32};
+                                    cell.profileImage.frame = frame;
+                                    UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
+                                    
+                                    cell.profileImage.image = resizedImage;
+                                }
+                            }];
+
     }
 
     if (indexPath.row % 2 == 0) {
