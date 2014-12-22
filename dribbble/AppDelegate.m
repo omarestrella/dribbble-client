@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import <SDWebImage/SDWebImageManager.h>
+
 @interface AppDelegate ()
 
 @end
@@ -39,6 +41,7 @@
     
     NSDictionary *dict = [self parseQueryString:[url query]];
     
+
     if ([url.host isEqualToString:@"auth"]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"authAttempt"
                                                             object:self
@@ -74,6 +77,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager cancelAll];
+    [[manager imageCache] clearMemory];
 }
 
 @end

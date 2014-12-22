@@ -24,6 +24,7 @@
 		6614F99E1A0FEA10009C643E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614F99D1A0FEA10009C643E /* WebKit.framework */; };
 		6614F9A11A10270F009C643E /* APIStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A01A10270F009C643E /* APIStore.m */; };
 		6614F9A81A1045A6009C643E /* ShotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */; };
+		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		66AEBA211A2A30A000CAEED8 /* eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */; };
 		66AEBA221A2A30A000CAEED8 /* eye@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA201A2A30A000CAEED8 /* eye@3x.png */; };
 		66C3FDD21A222C69002D2AC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C3FDD11A222C69002D2AC4 /* CoreGraphics.framework */; };
@@ -84,6 +85,8 @@
 		6614F9A01A10270F009C643E /* APIStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIStore.m; path = data/APIStore.m; sourceTree = "<group>"; };
 		6614F9A61A1045A6009C643E /* ShotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotCollectionViewCell.h; path = views/ShotCollectionViewCell.h; sourceTree = "<group>"; };
 		6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotCollectionViewCell.m; path = views/ShotCollectionViewCell.m; sourceTree = "<group>"; };
+		6688E1A81A488A80009B8FCD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		6688E1A91A488A80009B8FCD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@2x.png"; sourceTree = "<group>"; };
 		66AEBA201A2A30A000CAEED8 /* eye@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@3x.png"; sourceTree = "<group>"; };
 		66C3FDD11A222C69002D2AC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,8 @@
 			children = (
 				660CAC1D1A15975900ECE4B0 /* ShotModel.h */,
 				660CAC1E1A15975900ECE4B0 /* ShotModel.m */,
+				6688E1A81A488A80009B8FCD /* UserModel.h */,
+				6688E1A91A488A80009B8FCD /* UserModel.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				660CAC261A1797F700ECE4B0 /* Store.m in Sources */,
 				660CAC1F1A15975900ECE4B0 /* ShotModel.m in Sources */,
 				6614F9931A0FD06E009C643E /* ShotsViewController.m in Sources */,
+				6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */,
 				6614F96A1A0FCF89009C643E /* main.m in Sources */,
 				6614F9A11A10270F009C643E /* APIStore.m in Sources */,
 				DD5F9A87097251C5020F94D8 /* MockStore.m in Sources */,

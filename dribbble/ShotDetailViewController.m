@@ -15,8 +15,10 @@
 @implementation ShotDetailViewController
 
 - (void)viewDidLoad {
+    NSLog(@"%@", self.shot.shotDescription);
+    
     self.shotHeader.title.text = self.shot.title;
-    self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
+    self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"name"]];
 
     [self handleImage];
 
@@ -120,8 +122,6 @@
         NSString *body = comment[@"body"];
         NSString *name = comment[@"user"][@"name"];
         NSRange range;
-
-        NSLog(@"%@", comment);
         
         body = [body stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
         while ((range = [body rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {

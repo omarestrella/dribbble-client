@@ -32,6 +32,10 @@
     return sharedManager;
 }
 
+- (id)init {
+    return [super init];
+}
+
 - (BOOL)isAuthenticated {
     [NSError errorWithDomain:NSErrorDomain code:-1 userInfo:nil];
     return (BOOL) nil;

@@ -10,10 +10,10 @@
 
 - (NSString *)abbreviateNumber:(NSNumber *)number {
     double num = (double)[number integerValue];
-    NSArray *suffix = @[@"K", @"M", @"B"];
+    NSArray *suffix = @[@"k", @"m", @"b"];
 
     if (num >= 1000) {
-        for (int i = suffix.count - 1; i >= 0; i--) {
+        for (int i = (int)suffix.count - 1; i >= 0; i--) {
             double size = pow(10, (i + 1) * 3);
             if (size <= num) {
                 num = num / size;
