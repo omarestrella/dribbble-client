@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface AuthViewController : UIViewController<UIWebViewDelegate>
+@interface AuthViewController : UIViewController<UIWebViewDelegate, UIAlertViewDelegate>
 
 @end

@@ -91,6 +91,22 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Error loading: %@", error);
+    
+    if (error.code == -1009) {
+        NSLog(@"No internet connection");
+        
+        NSString *msg = @"We could not reach Dribbble. Please check your network connection and try again.";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:msg
+                                                       delegate:self cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self performSegueWithIdentifier:@"login" sender:self];
 }
 
 /*

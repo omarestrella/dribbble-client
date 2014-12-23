@@ -19,11 +19,48 @@
                     </view>
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="successfulAuth" id="E3Z-Qi-TA7"/>
+                        <segue destination="7AI-7C-bmA" kind="show" identifier="login" id="Ibk-l1-aYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ch0-yu-7Ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="22" y="-712"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="REf-vj-dv3">
+            <objects>
+                <viewController title="Login" id="7AI-7C-bmA" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5qs-cA-ddH"/>
+                        <viewControllerLayoutGuide type="bottom" id="HOT-6c-NTJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="19v-MM-ETY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShO-EC-7gu">
+                                <rect key="frame" x="281" y="285" width="38" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="7AI-7C-bmA" eventType="touchUpInside" id="Ge5-iM-I7s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ShO-EC-7gu" secondAttribute="centerY" id="8bj-sg-ZqO"/>
+                            <constraint firstAttribute="centerX" secondItem="ShO-EC-7gu" secondAttribute="centerX" id="Lae-8O-BJY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="yyv-MZ-Dpw" kind="presentation" identifier="attemptLogin" id="GOG-l1-3Xt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Erg-q0-Tnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792" y="-1458"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

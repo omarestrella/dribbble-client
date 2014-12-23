@@ -9,13 +9,15 @@
 #import <MTLModel.h>
 #import <MTLJSONAdapter.h>
 
+#import "UserModel.h"
+
 @class PMKPromise;
 
 @interface ShotModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSNumber *id;
 
-@property (nonatomic, copy, readonly) NSDictionary *user;
+@property (nonatomic, copy, readonly) UserModel *user;
 @property (nonatomic, copy, readonly) NSDictionary *team;
 
 @property (nonatomic, copy) NSString *title;
