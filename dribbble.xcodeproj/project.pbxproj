@@ -27,6 +27,7 @@
 		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1AC1A49A050009B8FCD /* LoginViewController.m */; };
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
+		6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1B11A4C57E4009B8FCD /* CommentTextField.m */; };
 		66AEBA211A2A30A000CAEED8 /* eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */; };
 		66AEBA221A2A30A000CAEED8 /* eye@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA201A2A30A000CAEED8 /* eye@3x.png */; };
 		66C3FDD21A222C69002D2AC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C3FDD11A222C69002D2AC4 /* CoreGraphics.framework */; };
@@ -92,6 +93,8 @@
 		6688E1AB1A49A050009B8FCD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6688E1AC1A49A050009B8FCD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6688E1AE1A49A6C5009B8FCD /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		6688E1B01A4C57E4009B8FCD /* CommentTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTextField.h; sourceTree = "<group>"; };
+		6688E1B11A4C57E4009B8FCD /* CommentTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTextField.m; sourceTree = "<group>"; };
 		66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@2x.png"; sourceTree = "<group>"; };
 		66AEBA201A2A30A000CAEED8 /* eye@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@3x.png"; sourceTree = "<group>"; };
 		66C3FDD11A222C69002D2AC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -345,6 +348,8 @@
 				DD5F9029D564E298E2BA46DA /* ShotMetaDetailsView.h */,
 				DD5F939E7592E0B08760D364 /* ShotCommentCell.m */,
 				DD5F9522FA7196ADB3C20EC5 /* ShotCommentCell.h */,
+				6688E1B01A4C57E4009B8FCD /* CommentTextField.h */,
+				6688E1B11A4C57E4009B8FCD /* CommentTextField.m */,
 			);
 			name = detail;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */,
 				DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */,
 				DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */,
+				6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */,
 				DD5F90A76740DC828FA59BA9 /* ShotDetailViewController.m in Sources */,
 				DD5F9254B74BB12F80A7BA50 /* UIImage+ProportionalFill.m in Sources */,
 				DD5F99D6A642736729899284 /* UIImage+Tint.m in Sources */,

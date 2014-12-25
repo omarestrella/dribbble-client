@@ -257,7 +257,7 @@
                                     <outlet property="title" destination="ubW-9r-csl" id="If8-bR-Pm2"/>
                                 </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-SL-MjY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-SL-MjY">
                                 <rect key="frame" x="0.0" y="128" width="600" height="423"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QW8-hm-6zR">
@@ -325,10 +325,10 @@
                                         </connections>
                                     </view>
                                     <tableView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Gn-Dtl">
-                                        <rect key="frame" x="0.0" y="207" width="300" height="208"/>
+                                        <rect key="frame" x="0.0" y="207" width="300" height="150"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="208" id="1hy-0k-fPt"/>
+                                            <constraint firstAttribute="height" constant="150" id="1hy-0k-fPt"/>
                                             <constraint firstAttribute="width" constant="300" placeholder="YES" id="m60-fs-RLw"/>
                                         </constraints>
                                         <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -387,6 +387,21 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Leave your comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ptb-Oa-txU" customClass="CommentTextField">
+                                        <rect key="frame" x="0.0" y="357" width="243" height="32"/>
+                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Vwx-WL-LS6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQC-NW-Rn8">
+                                        <rect key="frame" x="251" y="357" width="41" height="32"/>
+                                        <state key="normal" title="Leave">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="6BW-uF-PFe" secondAttribute="trailing" id="1yO-3K-Yst"/>
@@ -394,20 +409,29 @@
                                     <constraint firstItem="Bgp-Gn-Dtl" firstAttribute="top" secondItem="6BW-uF-PFe" secondAttribute="bottom" id="4jk-14-NEh"/>
                                     <constraint firstItem="QW8-hm-6zR" firstAttribute="top" secondItem="dqr-SL-MjY" secondAttribute="top" id="4lK-Lh-Wga"/>
                                     <constraint firstItem="Bgp-Gn-Dtl" firstAttribute="leading" secondItem="dqr-SL-MjY" secondAttribute="leading" id="8fr-5f-zbs"/>
+                                    <constraint firstItem="ptb-Oa-txU" firstAttribute="leading" secondItem="dqr-SL-MjY" secondAttribute="leading" id="Exs-KT-u5i"/>
+                                    <constraint firstItem="gQC-NW-Rn8" firstAttribute="top" secondItem="Bgp-Gn-Dtl" secondAttribute="bottom" id="HQy-YX-CVv"/>
                                     <constraint firstItem="Bgp-Gn-Dtl" firstAttribute="leading" secondItem="dqr-SL-MjY" secondAttribute="leading" id="K6f-5b-Ppi"/>
                                     <constraint firstAttribute="trailing" secondItem="Bgp-Gn-Dtl" secondAttribute="trailing" id="MzA-oo-m4r"/>
                                     <constraint firstAttribute="trailing" secondItem="Bgp-Gn-Dtl" secondAttribute="trailing" id="VzM-Ub-TZP"/>
+                                    <constraint firstAttribute="bottom" secondItem="gQC-NW-Rn8" secondAttribute="bottom" id="WI0-np-Ae6"/>
+                                    <constraint firstItem="ptb-Oa-txU" firstAttribute="top" secondItem="Bgp-Gn-Dtl" secondAttribute="bottom" id="YKD-wD-GQD"/>
                                     <constraint firstAttribute="bottom" secondItem="Bgp-Gn-Dtl" secondAttribute="bottom" id="awv-a6-Vuy"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bgp-Gn-Dtl" secondAttribute="bottom" priority="750" id="gn9-JS-QaC"/>
                                     <constraint firstItem="6BW-uF-PFe" firstAttribute="leading" secondItem="dqr-SL-MjY" secondAttribute="leading" id="mXq-Xv-yjZ"/>
+                                    <constraint firstItem="gQC-NW-Rn8" firstAttribute="leading" secondItem="ptb-Oa-txU" secondAttribute="trailing" constant="8" id="nHT-yv-WzL"/>
+                                    <constraint firstAttribute="bottom" secondItem="ptb-Oa-txU" secondAttribute="bottom" id="q2c-Sp-BOr"/>
                                     <constraint firstAttribute="trailing" secondItem="QW8-hm-6zR" secondAttribute="trailing" id="uUD-MI-tYr"/>
                                     <constraint firstItem="6BW-uF-PFe" firstAttribute="top" secondItem="QW8-hm-6zR" secondAttribute="bottom" id="veW-uR-olh"/>
+                                    <constraint firstAttribute="trailing" secondItem="ptb-Oa-txU" secondAttribute="trailing" id="vep-Ss-Wfv"/>
+                                    <constraint firstAttribute="trailing" secondItem="gQC-NW-Rn8" secondAttribute="trailing" constant="8" id="wpy-67-lux"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="K6f-5b-Ppi"/>
                                         <exclude reference="VzM-Ub-TZP"/>
                                         <exclude reference="awv-a6-Vuy"/>
+                                        <exclude reference="vep-Ss-Wfv"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -429,6 +453,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="commentTextField" destination="ptb-Oa-txU" id="02z-QQ-oca"/>
                         <outlet property="commentsHeightConstraint" destination="1hy-0k-fPt" id="Zdp-NC-nc4"/>
                         <outlet property="commentsTableView" destination="Bgp-Gn-Dtl" id="sNO-Ij-dBW"/>
                         <outlet property="shotHeader" destination="7zC-kK-NbH" id="QtQ-fM-54F"/>
@@ -438,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vo3-Os-4zq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="674"/>
+            <point key="canvasLocation" x="1587" y="833"/>
         </scene>
     </scenes>
     <resources>
