@@ -10,6 +10,6 @@
 
 @interface LoginViewController : UIViewController
 
-- (IBAction)buttonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

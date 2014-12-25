@@ -38,23 +38,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShO-EC-7gu">
-                                <rect key="frame" x="281" y="285" width="38" height="30"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="7AI-7C-bmA" eventType="touchUpInside" id="Ge5-iM-I7s"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-AG-wfQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="ShO-EC-7gu" secondAttribute="centerY" id="8bj-sg-ZqO"/>
-                            <constraint firstAttribute="centerX" secondItem="ShO-EC-7gu" secondAttribute="centerX" id="Lae-8O-BJY"/>
+                            <constraint firstItem="Lxr-AG-wfQ" firstAttribute="top" secondItem="5qs-cA-ddH" secondAttribute="bottom" constant="-20" id="9E9-hP-4K5"/>
+                            <constraint firstAttribute="trailing" secondItem="Lxr-AG-wfQ" secondAttribute="trailing" id="IHG-fg-Q4p"/>
+                            <constraint firstItem="Lxr-AG-wfQ" firstAttribute="leading" secondItem="19v-MM-ETY" secondAttribute="leading" id="InB-ZK-IIA"/>
+                            <constraint firstItem="HOT-6c-NTJ" firstAttribute="top" secondItem="Lxr-AG-wfQ" secondAttribute="bottom" id="WHc-y6-yBa"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="imageView" destination="Lxr-AG-wfQ" id="L6F-Ga-BuM"/>
                         <segue destination="yyv-MZ-Dpw" kind="presentation" identifier="attemptLogin" id="GOG-l1-3Xt"/>
                     </connections>
                 </viewController>
@@ -445,5 +443,6 @@
     </scenes>
     <resources>
         <image name="eye@3x.png" width="66" height="66"/>
+        <image name="login.png" width="640" height="907"/>
     </resources>
 </document>

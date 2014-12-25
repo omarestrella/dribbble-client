@@ -18,7 +18,7 @@
     NSLog(@"%@", self.shot.shotDescription);
     
     self.shotHeader.title.text = self.shot.title;
-    self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"name"]];
+//    self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user.name];
 
     [self handleImage];
 

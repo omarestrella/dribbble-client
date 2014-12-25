@@ -78,7 +78,7 @@
             if ([url.absoluteString hasSuffix:@"token"]) {
                 [Lockbox setString:@"" forKey:@"code"];
 
-                NSLog(@"Bad error...");
+                [self performSegueWithIdentifier:@"login" sender:self];
             }
         });
 }
@@ -92,7 +92,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Error loading: %@", error);
     
-    if (error.code == -1009) {
+    if (error.code == -1009 || error.code == -1005) {
         NSLog(@"No internet connection");
         
         NSString *msg = @"We could not reach Dribbble. Please check your network connection and try again.";
