@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
-#import <MTLModel.h>
-#import <MTLJSONAdapter.h>
+#import <Mantle/Mantle.h>
 
 #import "UserModel.h"
 

@@ -17,6 +17,10 @@
     };
 }
 
++ (NSValueTransformer *)userJSONTransformer {
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:UserModel.class];
+}
+
 - (PMKPromise *)comments {
     return [[Store sharedStore] commentsForShot:self];
 }
