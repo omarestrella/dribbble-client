@@ -12,9 +12,6 @@
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
     return CGRectInset(bounds, 8, 0);
-//    return CGRectMake(bounds.origin.x + 8, bounds.origin.y, bounds.size.width, bounds.size.height);
-    
-//    return [super textRectForBounds:bounds];
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds {
