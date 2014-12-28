@@ -9,10 +9,12 @@
 #import "ShotMetaDetailsView.h"
 #import "ShotModel.h"
 
-@interface ShotDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ShotDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, weak) NSArray *comments;
 @property (nonatomic, weak) ShotModel *shot;
+
+@property (nonatomic, assign) CGFloat lastContentOffset;
 
 @property (nonatomic, weak) UIImage *collectionImage;
 
@@ -24,5 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeightConstraint;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

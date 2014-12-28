@@ -254,6 +254,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="author" destination="zte-aD-Fs0" id="cii-vj-0F6"/>
+                                    <outlet property="heightConstraint" destination="0m7-xD-pXD" id="dC0-y9-uik"/>
                                     <outlet property="title" destination="ubW-9r-csl" id="If8-bR-Pm2"/>
                                 </connections>
                             </view>
@@ -456,6 +457,7 @@
                         <outlet property="commentTextField" destination="ptb-Oa-txU" id="02z-QQ-oca"/>
                         <outlet property="commentsHeightConstraint" destination="1hy-0k-fPt" id="Zdp-NC-nc4"/>
                         <outlet property="commentsTableView" destination="Bgp-Gn-Dtl" id="sNO-Ij-dBW"/>
+                        <outlet property="scrollView" destination="dqr-SL-MjY" id="mpi-oy-qAr"/>
                         <outlet property="shotHeader" destination="7zC-kK-NbH" id="QtQ-fM-54F"/>
                         <outlet property="shotImage" destination="QW8-hm-6zR" id="fqg-zw-0iG"/>
                         <outlet property="shotMeta" destination="6BW-uF-PFe" id="VCm-Pj-TXH"/>

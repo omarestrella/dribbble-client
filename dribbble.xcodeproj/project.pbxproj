@@ -587,7 +587,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "$(inherited)";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"DEBUG=1",
+					"MOCK=1",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -642,6 +645,28 @@
 			baseConfigurationReference = 1E6C9B34D64B7EDE8E33BBC6 /* Pods-dribbble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"PMK_NSNOTIFICATIONCENTER=1",
+					"$(inherited)",
+					"PMK_NSURLCONNECTION=1",
+					"$(inherited)",
+					"PMK_PAUSE=1",
+					"$(inherited)",
+					"PMK_UIACTIONSHEET=1",
+					"$(inherited)",
+					"PMK_UIALERTVIEW=1",
+					"$(inherited)",
+					"PMK_UIVIEW=1",
+					"$(inherited)",
+					"PMK_UIVIEWCONTROLLER=1",
+					"$(inherited)",
+					"PMK_UNTIL=1",
+					"$(inherited)",
+					"PMK_WHEN=1",
+				);
 				INFOPLIST_FILE = dribbble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

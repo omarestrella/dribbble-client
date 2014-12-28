@@ -15,7 +15,7 @@
 @implementation ShotDetailViewController
 
 - (void)viewDidLoad {
-    NSLog(@"%@", self.shot.shotDescription);
+    self.lastContentOffset = 0;
     
     self.shotHeader.title.text = self.shot.title;
     self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user.name];
@@ -32,6 +32,8 @@
 
     self.commentsTableView.dataSource = self;
     self.commentsTableView.delegate = self;
+    
+    self.scrollView.delegate = self;
 
     [self.shotMeta setupData:self.shot];
 }
@@ -172,14 +174,6 @@
 
 #pragma mark - UITableViewDelegate
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    ShotHeaderView *headerCell = (ShotHeaderView *) [tableView dequeueReusableCellWithIdentifier:@"headerCell"];
-//    headerCell.title.text = self.shot.title;
-//    headerCell.author.text = [NSString stringWithFormat:@"by %@", self.shot.user[@"username"]];
-//    headerCell.layoutMargins = UIEdgeInsetsMake(0, 20, 0, 0);
-//    return headerCell;
-//}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Comments";
 }
@@ -187,11 +181,16 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *) view;
     header.textLabel.font = [UIFont boldSystemFontOfSize:12];
-//    header.layoutMargins = UIEdgeInsetsMake(0, 20, 0, 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 40;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
 }
 
 @end

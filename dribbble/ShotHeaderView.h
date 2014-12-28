@@ -10,4 +10,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *author;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *heightConstraint;
+
 @end

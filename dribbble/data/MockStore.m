@@ -27,8 +27,22 @@
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:30];
         NSDictionary *shot = [self mockDataForFile:@"shot"];
+        ShotModel *model = [MTLJSONAdapter modelOfClass:ShotModel.class fromJSONDictionary:shot error:nil];
         for (int i = 0; i < 30; ++i) {
-            [array addObject:shot];
+            [array addObject:model];
+        }
+        fulfill(array);
+    }];
+}
+
+- (PMKPromise *)commentsForShot:(ShotModel *)shot {
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        NSMutableArray *array = [@[] mutableCopy];
+        for (int i = 0; i < 30; ++i) {
+            [array addObject:@{
+                               @"body": @"Lorem ipsum...",
+                               @"user": @{ @"name": @"Marcus Aurelius" }
+                               }];
         }
         fulfill(array);
     }];
