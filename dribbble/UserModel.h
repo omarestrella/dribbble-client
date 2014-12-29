@@ -11,6 +11,8 @@
 
 @interface UserModel : MTLModel<MTLJSONSerializing>
 
+- (BOOL)canComment;
+
 @property (nonatomic, copy, readonly) NSNumber *id;
 
 @property (nonatomic, copy, readonly) NSString *name;

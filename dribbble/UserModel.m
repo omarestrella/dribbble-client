@@ -14,4 +14,8 @@
     return @{};
 }
 
+- (BOOL)canComment {
+    return [self.type isEqualToString:@"Player"];
+}
+
 @end

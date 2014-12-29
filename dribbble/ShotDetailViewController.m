@@ -11,6 +11,7 @@
 #import "ShotDetailViewController.h"
 #import "UIImage+ProportionalFill.h"
 #import "ShotCommentCell.h"
+#import "Store.h"
 
 @implementation ShotDetailViewController {
     BOOL keyboardShown;
@@ -52,6 +53,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self registerForKeyboardNotifications];
+    
+    [[Store sharedStore] me].then(^(UserModel *user) {
+        if(![user canComment]) {
+            [self.commentTextField removeFromSuperview];
+            [self.commentSubmitButton removeFromSuperview];
+        }
+    });
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -178,6 +186,13 @@
     } completion:^(BOOL completed) {
         self.commentsHeightConstraint.constant = self.commentsTableView.contentSize.height;
     }];
+}
+
+- (IBAction)webButtonPress:(id)sender {
+    NSURL *url = [NSURL URLWithString:self.shot.html_url];
+    if (![[UIApplication sharedApplication] openURL:url]) {
+        NSLog(@"Failed open shot URL: %@", [url description]);
+    }
 }
 
 #pragma mark - UITableViewDataSource

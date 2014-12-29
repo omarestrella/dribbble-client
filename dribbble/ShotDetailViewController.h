@@ -22,11 +22,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet ShotMetaDetailsView *shotMeta;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+@property (weak, nonatomic) IBOutlet UIButton *commentSubmitButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeightConstraint;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+- (IBAction)webButtonPress:(id)sender;
 
 @end
