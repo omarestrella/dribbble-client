@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Auth View Controller-->
@@ -117,12 +118,49 @@
                     <view key="view" contentMode="scaleToFill" id="QV0-ab-86c">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9X-is-CpN">
+                                <rect key="frame" x="252" y="72" width="96" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="9Uf-5c-MfE"/>
+                                    <constraint firstAttribute="width" constant="96" id="ymx-3g-iay"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8p-gC-VLs">
+                                <rect key="frame" x="277" y="184" width="48" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tba-Rz-5nr">
+                                <rect key="frame" x="180" y="238" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="SWF-Wj-ctC"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="emM-HS-X9s" kind="embed" id="JnA-cm-s4S"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tba-Rz-5nr" secondAttribute="trailing" constant="164" id="UWF-0N-v2q"/>
+                            <constraint firstItem="F8p-gC-VLs" firstAttribute="top" secondItem="Q9X-is-CpN" secondAttribute="bottom" constant="16" id="b45-o6-gdq"/>
+                            <constraint firstAttribute="centerX" secondItem="F8p-gC-VLs" secondAttribute="centerX" constant="-0.5" id="b81-r1-ocF"/>
+                            <constraint firstAttribute="centerX" secondItem="Q9X-is-CpN" secondAttribute="centerX" id="eGm-U7-cg3"/>
+                            <constraint firstItem="Tba-Rz-5nr" firstAttribute="top" secondItem="F8p-gC-VLs" secondAttribute="bottom" constant="32" id="hvY-CQ-ogB"/>
+                            <constraint firstItem="Q9X-is-CpN" firstAttribute="top" secondItem="WcV-46-JkC" secondAttribute="bottom" constant="8" id="oiK-WV-hwm"/>
+                            <constraint firstItem="Tba-Rz-5nr" firstAttribute="leading" secondItem="QV0-ab-86c" secondAttribute="leadingMargin" constant="164" id="wqs-Sz-PxQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Q9X-is-CpN" id="3ZA-By-7zx"/>
+                        <outlet property="name" destination="F8p-gC-VLs" id="Gbw-F9-mdy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYt-6x-iYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="-683"/>
+            <point key="canvasLocation" x="1407" y="-685.5"/>
         </scene>
         <!--Popular-->
         <scene sceneID="3fA-ok-0Qi">
@@ -167,7 +205,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Popular" id="mnD-Tf-6Zg">
-                        <barButtonItem key="rightBarButtonItem" image="user@3x.png" style="done" id="40y-do-YnH">
+                        <barButtonItem key="rightBarButtonItem" image="user.png" style="done" id="40y-do-YnH">
                             <connections>
                                 <segue destination="vPe-cD-n5p" kind="show" id="dOp-h5-8Gu"/>
                             </connections>
@@ -431,6 +469,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Shot" id="qix-pk-O1S">
+                        <barButtonItem key="rightBarButtonItem" image="world_times.png" id="l68-iV-wnl"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentTextField" destination="ptb-Oa-txU" id="02z-QQ-oca"/>
                         <outlet property="commentsHeightConstraint" destination="1hy-0k-fPt" id="Zdp-NC-nc4"/>
@@ -445,10 +486,47 @@
             </objects>
             <point key="canvasLocation" x="1587" y="833"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9mM-bv-9bD">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dgu-Zn-HfE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zt3-2A-5D4"/>
+                        <viewControllerLayoutGuide type="bottom" id="pbA-u4-jk6"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4xx-FQ-dsW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WeV-Nh-yLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pdX-xb-iQj">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="emM-HS-X9s" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xIU-ob-ceG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yed-DC-69z"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yvR-52-jan">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oip-rT-wVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="eye@3x.png" width="66" height="66"/>
         <image name="login.png" width="640" height="907"/>
-        <image name="user@3x.png" width="66" height="66"/>
+        <image name="user.png" width="22" height="22"/>
+        <image name="world_times.png" width="22" height="22"/>
     </resources>
 </document>

@@ -22,13 +22,15 @@
 		6614F99E1A0FEA10009C643E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614F99D1A0FEA10009C643E /* WebKit.framework */; };
 		6614F9A11A10270F009C643E /* APIStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A01A10270F009C643E /* APIStore.m */; };
 		6614F9A81A1045A6009C643E /* ShotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */; };
+		665310591A51E52E003A408E /* world_times.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310581A51E52E003A408E /* world_times.png */; };
+		6653105B1A51E54C003A408E /* world_times@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653105A1A51E54C003A408E /* world_times@2x.png */; };
+		6653105D1A51E55E003A408E /* world_times@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653105C1A51E55E003A408E /* world_times@3x.png */; };
 		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1AC1A49A050009B8FCD /* LoginViewController.m */; };
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
 		6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1B11A4C57E4009B8FCD /* CommentTextField.m */; };
-		6688E1B81A512A98009B8FCD /* ProfileMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1B71A512A98009B8FCD /* ProfileMainTableViewCell.m */; };
 		6688E1BB1A51E020009B8FCD /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1BA1A51E020009B8FCD /* ProfileViewController.m */; };
-		6688E1BD1A51E198009B8FCD /* user@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1BC1A51E198009B8FCD /* user@1x.png */; };
+		6688E1BD1A51E198009B8FCD /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1BC1A51E198009B8FCD /* user.png */; };
 		6688E1BF1A51E1D0009B8FCD /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1BE1A51E1D0009B8FCD /* user@2x.png */; };
 		6688E1C11A51E1E4009B8FCD /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1C01A51E1E4009B8FCD /* user@3x.png */; };
 		66AEBA211A2A30A000CAEED8 /* eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */; };
@@ -89,6 +91,9 @@
 		6614F9A01A10270F009C643E /* APIStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIStore.m; path = data/APIStore.m; sourceTree = "<group>"; };
 		6614F9A61A1045A6009C643E /* ShotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotCollectionViewCell.h; path = views/ShotCollectionViewCell.h; sourceTree = "<group>"; };
 		6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotCollectionViewCell.m; path = views/ShotCollectionViewCell.m; sourceTree = "<group>"; };
+		665310581A51E52E003A408E /* world_times.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = world_times.png; path = "iOS Pro/PNG/Toolbar @1x Outline/Native iOS/world_times.png"; sourceTree = SOURCE_ROOT; };
+		6653105A1A51E54C003A408E /* world_times@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "world_times@2x.png"; path = "iOS Pro/PNG/Toolbar @2x Outline/Native iOS/world_times@2x.png"; sourceTree = SOURCE_ROOT; };
+		6653105C1A51E55E003A408E /* world_times@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "world_times@3x.png"; path = "iOS Pro/PNG/Toolbar @3x Outline/Native iOS/world_times@3x.png"; sourceTree = SOURCE_ROOT; };
 		6688E1A81A488A80009B8FCD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		6688E1A91A488A80009B8FCD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		6688E1AB1A49A050009B8FCD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -96,11 +101,9 @@
 		6688E1AE1A49A6C5009B8FCD /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		6688E1B01A4C57E4009B8FCD /* CommentTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTextField.h; sourceTree = "<group>"; };
 		6688E1B11A4C57E4009B8FCD /* CommentTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTextField.m; sourceTree = "<group>"; };
-		6688E1B61A512A98009B8FCD /* ProfileMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileMainTableViewCell.h; sourceTree = "<group>"; };
-		6688E1B71A512A98009B8FCD /* ProfileMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileMainTableViewCell.m; sourceTree = "<group>"; };
 		6688E1B91A51E020009B8FCD /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		6688E1BA1A51E020009B8FCD /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		6688E1BC1A51E198009B8FCD /* user@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@1x.png"; path = "iOS Pro/PNG/Toolbar @1x Outline/Users/user@1x.png"; sourceTree = SOURCE_ROOT; };
+		6688E1BC1A51E198009B8FCD /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = "iOS Pro/PNG/Toolbar @1x Outline/Users/user.png"; sourceTree = SOURCE_ROOT; };
 		6688E1BE1A51E1D0009B8FCD /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "iOS Pro/PNG/Toolbar @2x Outline/Users/user@2x.png"; sourceTree = SOURCE_ROOT; };
 		6688E1C01A51E1E4009B8FCD /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@3x.png"; path = "iOS Pro/PNG/Toolbar @3x Outline/Users/user@3x.png"; sourceTree = SOURCE_ROOT; };
 		66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@2x.png"; sourceTree = "<group>"; };
@@ -191,9 +194,12 @@
 		660CAC2A1A1C2BB900ECE4B0 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				6653105C1A51E55E003A408E /* world_times@3x.png */,
+				6653105A1A51E54C003A408E /* world_times@2x.png */,
+				665310581A51E52E003A408E /* world_times.png */,
 				6688E1C01A51E1E4009B8FCD /* user@3x.png */,
 				6688E1BE1A51E1D0009B8FCD /* user@2x.png */,
-				6688E1BC1A51E198009B8FCD /* user@1x.png */,
+				6688E1BC1A51E198009B8FCD /* user.png */,
 				6688E1AE1A49A6C5009B8FCD /* login.png */,
 				66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */,
 				66AEBA201A2A30A000CAEED8 /* eye@3x.png */,
@@ -361,8 +367,6 @@
 				DD5F9522FA7196ADB3C20EC5 /* ShotCommentCell.h */,
 				6688E1B01A4C57E4009B8FCD /* CommentTextField.h */,
 				6688E1B11A4C57E4009B8FCD /* CommentTextField.m */,
-				6688E1B61A512A98009B8FCD /* ProfileMainTableViewCell.h */,
-				6688E1B71A512A98009B8FCD /* ProfileMainTableViewCell.m */,
 			);
 			name = detail;
 			sourceTree = "<group>";
@@ -451,13 +455,16 @@
 			files = (
 				6688E1C11A51E1E4009B8FCD /* user@3x.png in Resources */,
 				66AEBA221A2A30A000CAEED8 /* eye@3x.png in Resources */,
+				6653105D1A51E55E003A408E /* world_times@3x.png in Resources */,
 				6614F97B1A0FCF89009C643E /* LaunchScreen.xib in Resources */,
 				6614F9761A0FCF89009C643E /* Main.storyboard in Resources */,
 				6614F9781A0FCF89009C643E /* Images.xcassets in Resources */,
 				DD5F90815D75D8B4C5E2DEAB /* user.json in Resources */,
 				6688E1AF1A49A6C5009B8FCD /* login.png in Resources */,
-				6688E1BD1A51E198009B8FCD /* user@1x.png in Resources */,
+				665310591A51E52E003A408E /* world_times.png in Resources */,
+				6688E1BD1A51E198009B8FCD /* user.png in Resources */,
 				66AEBA211A2A30A000CAEED8 /* eye@2x.png in Resources */,
+				6653105B1A51E54C003A408E /* world_times@2x.png in Resources */,
 				DD5F98E1AEC2E081E2C8E1D1 /* shot.json in Resources */,
 				660CAC2D1A1C2BB900ECE4B0 /* ball.png in Resources */,
 				6688E1BF1A51E1D0009B8FCD /* user@2x.png in Resources */,
@@ -525,7 +532,6 @@
 				DD5F972AF9DCCB59443B949E /* AuthManager.m in Sources */,
 				6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */,
 				DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */,
-				6688E1B81A512A98009B8FCD /* ProfileMainTableViewCell.m in Sources */,
 				DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */,
 				DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */,
 				6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */,

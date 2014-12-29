@@ -14,4 +14,7 @@
 
 @property (weak, nonatomic) UserModel *user;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+
 @end
