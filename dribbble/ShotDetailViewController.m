@@ -20,6 +20,7 @@
     self.shotHeader.title.text = self.shot.title;
     self.shotHeader.author.text = [NSString stringWithFormat:@"by %@", self.shot.user.name];
 
+    [self setupGestures];
     [self handleImage];
 
     [self.shot comments].then(^(NSArray *comments) {
@@ -34,12 +35,78 @@
     self.commentsTableView.delegate = self;
     
     self.scrollView.delegate = self;
+    self.commentTextField.delegate = self;
 
     [self.shotMeta setupData:self.shot];
 }
 
+- (void)registerForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeShown:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+}
+
+- (void)deregisterFromKeyboardNotifications {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+    
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self registerForKeyboardNotifications];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self deregisterFromKeyboardNotifications];
+}
+
+- (void)keyboardWillBeShown:(NSNotification *)notification {
+    NSDictionary *data = [notification userInfo];
+    CGSize keyboardSize = [data[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize scrollViewSize = self.scrollView.frame.size;
+    CGFloat textFieldSize = self.commentTextField.frame.size.height + 16;
+    
+    self.scrollView.frame = CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y,
+                                       scrollViewSize.width, scrollViewSize.height - keyboardSize.height + textFieldSize);
+}
+
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
+    NSDictionary *data = [notification userInfo];
+    CGSize keyboardSize = [data[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize scrollViewSize = self.scrollView.frame.size;
+    CGFloat textFieldSize = self.commentTextField.frame.size.height + 16;
+    
+    self.scrollView.frame = CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y,
+                                       scrollViewSize.width, scrollViewSize.height + keyboardSize.height - textFieldSize);
+    
+    [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+                             animated:YES];
+}
+
+- (void)handleSingleTap {
+    [self.commentTextField resignFirstResponder];
+}
+
+- (void)setupGestures {
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
+    [self.view addGestureRecognizer:singleTap];
 }
 
 - (void)handleImage {
@@ -190,6 +257,16 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     
 }
 

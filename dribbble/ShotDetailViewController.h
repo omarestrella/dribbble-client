@@ -9,7 +9,7 @@
 #import "ShotMetaDetailsView.h"
 #import "ShotModel.h"
 
-@interface ShotDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface ShotDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) NSArray *comments;
 @property (nonatomic, weak) ShotModel *shot;
