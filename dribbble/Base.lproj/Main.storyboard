@@ -167,26 +167,40 @@
         <!--Profile Shots-->
         <scene sceneID="7CQ-k8-IbV">
             <objects>
-                <collectionViewController title="Profile Shots" id="H2L-Ps-cjy" sceneMemberID="viewController">
+                <collectionViewController title="Profile Shots" id="H2L-Ps-cjy" customClass="ShotsViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hA5-ds-7Ss">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lYk-Rq-xnh">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="75" height="75"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="7c4-P9-CLi">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="shot" id="7c4-P9-CLi" customClass="ShotCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rFo-gJ-wL2">
+                                            <rect key="frame" x="10" y="10" width="54" height="56"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="rFo-gJ-wL2" firstAttribute="top" secondItem="7c4-P9-CLi" secondAttribute="topMargin" constant="2" id="BbU-gr-avJ"/>
+                                    <constraint firstAttribute="centerX" secondItem="rFo-gJ-wL2" secondAttribute="centerX" constant="0.5" id="Sk2-Il-m51"/>
+                                    <constraint firstAttribute="centerY" secondItem="rFo-gJ-wL2" secondAttribute="centerY" constant="-0.5" id="eeS-81-Lft"/>
+                                    <constraint firstItem="rFo-gJ-wL2" firstAttribute="leading" secondItem="7c4-P9-CLi" secondAttribute="leadingMargin" constant="2" id="q0A-UH-c1g"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="rFo-gJ-wL2" id="kSE-pl-1hM"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fAv-zX-f4p">
