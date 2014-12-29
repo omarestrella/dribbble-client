@@ -175,11 +175,6 @@
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udd-Rs-i4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="fvq-kC-Cao">
-                    <rect key="frame" x="0.0" y="0.0" width="133" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="1468" y="42"/>
         </scene>
