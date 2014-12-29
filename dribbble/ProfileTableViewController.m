@@ -66,9 +66,7 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *defaultCell = [tableView dequeueReusableCellWithIdentifier:@"userDataCell" forIndexPath:indexPath];
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     if (self.user) {
         if (indexPath.section == 0 && indexPath.row == 0) {
             ProfileMainTableViewCell *cell = (ProfileMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"mainUserCell"
@@ -76,10 +74,10 @@
             [cell setupUser:self.user];
             return cell;
         } else {
-            return defaultCell;
+            return [tableView dequeueReusableCellWithIdentifier:@"userDataCell" forIndexPath:indexPath];;
         }
     } else {
-        return defaultCell;
+        return [tableView dequeueReusableCellWithIdentifier:@"userDataCell" forIndexPath:indexPath];;
     }
 }
 
