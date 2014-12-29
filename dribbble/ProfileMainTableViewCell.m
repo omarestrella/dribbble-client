@@ -20,16 +20,22 @@
     
     NSURL *url = [NSURL URLWithString:user.avatar_url];
     
+    NSInteger sizeValue = 64;
+    
     [manager downloadImageWithURL:url options:SDWebImageContinueInBackground
                          progress:(SDWebImageDownloaderProgressBlock) ^(NSInteger receivedSize, NSInteger expectedSize) {}
                         completed:(SDWebImageCompletionWithFinishedBlock) ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                             if (image) {
-                                CGSize size = {48, 48};
-                                CGRect frame = CGRectMake(self.frame.size.width / 2 - 24, 8, 48, 48);
+                                CGSize size = {sizeValue, sizeValue};
+                                CGRect frame = CGRectMake(0, 0, sizeValue, sizeValue);
                                 UIImage *resizedImage = [image imageToFitSize:size method:MGImageResizeScale];
 
                                 self.imageView.frame = frame;
                                 self.imageView.image = resizedImage;
+                                
+                                CALayer *layer = self.imageView.layer;
+                                [layer setMasksToBounds:YES];
+                                [layer setCornerRadius:sizeValue / 2];
                             }
                         }];
 }

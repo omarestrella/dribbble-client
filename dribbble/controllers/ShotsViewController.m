@@ -39,21 +39,10 @@
         [self.shots addObjectsFromArray:shots];
         [self.collectionView reloadData];
     });
-
-    [self setupProfileButton];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)setupProfileButton {
-    UIImage *icon = [IonIcons imageWithIcon:icon_ios7_person
-                                  iconColor:[UIColor whiteColor]
-                                   iconSize:32.0f
-                                  imageSize:CGSizeMake(20.0f, 90.0f)];
-
-    [self.navigationItem.rightBarButtonItem setImage:icon];
 }
 
 #pragma mark - UIScrollViewDelegate
