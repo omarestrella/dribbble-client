@@ -7,6 +7,9 @@
 //
 
 #import "ProfileTableViewController.h"
+#import "ProfileMainTableViewCell.h"
+
+#import "Store.h"
 
 @interface ProfileTableViewController ()
 
@@ -19,6 +22,12 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    [[Store sharedStore] me].then(^(UserModel *user) {
+        self.user = user;
+        
+        [self.tableView reloadData];
+    });
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -35,69 +44,58 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 2;
+    if (self.user) {
+        return 2;
+    }
+    
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (self.user) {
+        if (section == 0) {
+            return 1;
+        } else if (section == 1) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
+    
+    return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier;
-    switch(indexPath.section) {
-        case 0:
-            identifier = @"mainUserCell";
-            break;
-        case 1:
-            identifier = @"userDataCell";
-            break;
-        default:
-            identifier = @"userDataCell";
-            break;
+    UITableViewCell *defaultCell = [tableView dequeueReusableCellWithIdentifier:@"userDataCell" forIndexPath:indexPath];
+    
+    if (self.user) {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            ProfileMainTableViewCell *cell = (ProfileMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"mainUserCell"
+                                                                                                         forIndexPath:indexPath];
+            [cell setupUser:self.user];
+            return cell;
+        } else {
+            return defaultCell;
+        }
+    } else {
+        return defaultCell;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Your Profile";
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+    return @"";
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - UITableViewDelegate
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30.0;
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

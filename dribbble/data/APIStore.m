@@ -11,7 +11,10 @@
 #import "APIStore.h"
 #import "ShotModel.h"
 
-@implementation APIStore
+@implementation APIStore {
+    @private
+    UserModel *currentUser;
+}
 
 - (APIStore *)init {
     APIStore *store = (APIStore *) [super init];
@@ -35,15 +38,29 @@
 
 #pragma mark - API calls
 
+- (PMKPromise *)me {
+    if (currentUser) {
+        return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+            fulfill(currentUser);
+        }];
+    }
+    
+    return [self userForId:nil];
+}
+
 - (PMKPromise *)userForId:(NSNumber *)userId {
     NSString *url;
+    NSDictionary *cacheUser;
+    
     if (userId) {
         url = [NSString stringWithFormat:@"users/%ld", (long) userId];
     } else {
         url = [NSString stringWithFormat:@"user"];
     }
 
-    NSDictionary *cacheUser = self.cache[@"user"][userId];
+    if (userId) {
+        cacheUser = self.cache[@"user"][userId];
+    }
 
     if (cacheUser) {
         return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
@@ -51,7 +68,8 @@
         }];
     }
 
-    return [self.manager GET:url parameters:nil].then(^(NSDictionary *user) {
+    return [self.manager GET:url parameters:nil].then(^(NSDictionary *userData) {
+        UserModel *user = [MTLJSONAdapter modelOfClass:UserModel.class fromJSONDictionary:userData error:nil];
         [self storeUser:user];
         return user;
     });
@@ -100,8 +118,8 @@
     } mutableCopy];
 }
 
-- (void)storeUser:(NSDictionary *)user {
-    NSNumber *userId = user[@"id"];
+- (void)storeUser:(UserModel *)user {
+    NSNumber *userId = user.id;
     self.cache[@"user"][userId] = user;
 }
 

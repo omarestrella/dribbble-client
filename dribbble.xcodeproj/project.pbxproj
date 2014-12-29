@@ -29,6 +29,7 @@
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
 		6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1B11A4C57E4009B8FCD /* CommentTextField.m */; };
 		6688E1B51A5112ED009B8FCD /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1B41A5112ED009B8FCD /* ProfileTableViewController.m */; };
+		6688E1B81A512A98009B8FCD /* ProfileMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1B71A512A98009B8FCD /* ProfileMainTableViewCell.m */; };
 		66AEBA211A2A30A000CAEED8 /* eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */; };
 		66AEBA221A2A30A000CAEED8 /* eye@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AEBA201A2A30A000CAEED8 /* eye@3x.png */; };
 		66C3FDD21A222C69002D2AC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C3FDD11A222C69002D2AC4 /* CoreGraphics.framework */; };
@@ -98,6 +99,8 @@
 		6688E1B11A4C57E4009B8FCD /* CommentTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTextField.m; sourceTree = "<group>"; };
 		6688E1B31A5112ED009B8FCD /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		6688E1B41A5112ED009B8FCD /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		6688E1B61A512A98009B8FCD /* ProfileMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileMainTableViewCell.h; sourceTree = "<group>"; };
+		6688E1B71A512A98009B8FCD /* ProfileMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileMainTableViewCell.m; sourceTree = "<group>"; };
 		66AEBA1F1A2A30A000CAEED8 /* eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@2x.png"; sourceTree = "<group>"; };
 		66AEBA201A2A30A000CAEED8 /* eye@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye@3x.png"; sourceTree = "<group>"; };
 		66C3FDD11A222C69002D2AC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -355,6 +358,8 @@
 				DD5F9522FA7196ADB3C20EC5 /* ShotCommentCell.h */,
 				6688E1B01A4C57E4009B8FCD /* CommentTextField.h */,
 				6688E1B11A4C57E4009B8FCD /* CommentTextField.m */,
+				6688E1B61A512A98009B8FCD /* ProfileMainTableViewCell.h */,
+				6688E1B71A512A98009B8FCD /* ProfileMainTableViewCell.m */,
 			);
 			name = detail;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				DD5F972AF9DCCB59443B949E /* AuthManager.m in Sources */,
 				6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */,
 				DD5F96E348FBCF0385589213 /* APIAuthManager.m in Sources */,
+				6688E1B81A512A98009B8FCD /* ProfileMainTableViewCell.m in Sources */,
 				DD5F91F243A8B97A6DB241A1 /* MockAuthManager.m in Sources */,
 				DD5F9F2C5936762C13480278 /* AppConstants.m in Sources */,
 				6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */,

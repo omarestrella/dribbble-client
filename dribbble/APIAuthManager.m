@@ -39,6 +39,9 @@
         .then(^(NSDictionary *response) {
             [Lockbox setString:response[@"access_token"] forKey:@"code"];
             [self.store setAuthorizationHeader:response[@"access_token"]];
+        }).then(^{
+            // Eager loading...
+            [self.store me];
         });
 }
 

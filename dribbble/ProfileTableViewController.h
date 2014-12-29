@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UserModel.h"
+
 @interface ProfileTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) UserModel *user;
 
 @end
