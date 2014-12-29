@@ -12,9 +12,13 @@
 #import "UIImage+ProportionalFill.h"
 #import "ShotCommentCell.h"
 
-@implementation ShotDetailViewController
+@implementation ShotDetailViewController {
+    BOOL keyboardShown;
+}
 
 - (void)viewDidLoad {
+    keyboardShown = NO;
+    
     self.lastContentOffset = 0;
     
     self.shotHeader.title.text = self.shot.title;
@@ -40,30 +44,7 @@
     [self.shotMeta setupData:self.shot];
 }
 
-- (void)registerForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeShown:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
-}
-
-- (void)deregisterFromKeyboardNotifications {
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-    
-}
+#pragma mark - Core View
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -77,27 +58,51 @@
     [self deregisterFromKeyboardNotifications];
 }
 
-- (void)keyboardWillBeShown:(NSNotification *)notification {
-    NSDictionary *data = [notification userInfo];
-    CGSize keyboardSize = [data[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    CGSize scrollViewSize = self.scrollView.frame.size;
-    CGFloat textFieldSize = self.commentTextField.frame.size.height + 16;
+#pragma mark - Custom
+
+- (void)registerForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
     
-    self.scrollView.frame = CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y,
-                                       scrollViewSize.width, scrollViewSize.height - keyboardSize.height + textFieldSize);
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)deregisterFromKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardDidShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    NSDictionary *data = [notification userInfo];
+    CGSize viewSize = self.view.frame.size;
+    CGSize keyboardSize = [data[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,
+                                     viewSize.width, viewSize.height - keyboardSize.height);
+        [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentOffset.y + keyboardSize.height - 16)];
+    }];
 }
 
 - (void)keyboardWillBeHidden:(NSNotification *)notification {
     NSDictionary *data = [notification userInfo];
     CGSize keyboardSize = [data[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    CGSize scrollViewSize = self.scrollView.frame.size;
-    CGFloat textFieldSize = self.commentTextField.frame.size.height + 16;
+    CGSize viewSize = self.view.frame.size;
     
-    self.scrollView.frame = CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y,
-                                       scrollViewSize.width, scrollViewSize.height + keyboardSize.height - textFieldSize);
-    
-    [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
-                             animated:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,
+                                     viewSize.width, viewSize.height + keyboardSize.height);
+    }];
 }
 
 - (void)handleSingleTap {
