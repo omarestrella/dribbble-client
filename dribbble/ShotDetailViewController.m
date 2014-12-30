@@ -41,6 +41,8 @@
     
     self.scrollView.delegate = self;
     self.commentTextField.delegate = self;
+    
+    self.scrollView.canCancelContentTouches = NO;
 
     [self.shotMeta setupData:self.shot];
 }
@@ -119,6 +121,7 @@
 
 - (void)setupGestures {
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
+    [singleTap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:singleTap];
 }
 
@@ -195,6 +198,16 @@
     }
 }
 
+- (IBAction)touchedMoreButton:(UIButton *)sender {
+    ShotCommentCell *cell = (ShotCommentCell *)sender.superview.superview;
+    CGPoint point = [self.view convertPoint:(CGPoint){0, 0} fromView:sender];
+    CGFloat extraHeight = 60 + 8; // header + margin
+    point.x = 0;
+    point.y = point.y + self.scrollView.contentOffset.y - cell.frame.size.height - extraHeight;
+    [self.scrollView setContentOffset:point animated:YES];
+    NSLog(@"%@", NSStringFromCGPoint(point));
+}
+
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -236,6 +249,10 @@
                                 }
                             }];
 
+    } else {
+        cell.comment.text = @" ";
+        cell.name.text = @" ";
+        cell.profileImage.frame = CGRectMake(0, 0, 32, 32);
     }
 
     if (indexPath.row % 2 == 0) {
@@ -256,7 +273,7 @@
         return self.comments.count;
     }
 
-    return 0;
+    return 2;
 }
 
 #pragma mark - UITableViewDelegate

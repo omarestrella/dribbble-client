@@ -37,6 +37,9 @@
 		665310711A52E158003A408E /* chat_reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310701A52E158003A408E /* chat_reply.png */; };
 		665310731A52E16C003A408E /* chat_reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310721A52E16C003A408E /* chat_reply@2x.png */; };
 		665310751A52E191003A408E /* chat_reply@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310741A52E191003A408E /* chat_reply@3x.png */; };
+		665310771A52F823003A408E /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310761A52F823003A408E /* more.png */; };
+		665310791A52F83D003A408E /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310781A52F83D003A408E /* more@2x.png */; };
+		6653107B1A52F84C003A408E /* more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653107A1A52F84C003A408E /* more@3x.png */; };
 		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1AC1A49A050009B8FCD /* LoginViewController.m */; };
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
@@ -116,6 +119,9 @@
 		665310701A52E158003A408E /* chat_reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_reply.png; path = "iOS Pro/PNG/Tab Bar @1x Filled/General/chat_reply.png"; sourceTree = SOURCE_ROOT; };
 		665310721A52E16C003A408E /* chat_reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chat_reply@2x.png"; path = "iOS Pro/PNG/Tab Bar @2x Filled/General/chat_reply@2x.png"; sourceTree = SOURCE_ROOT; };
 		665310741A52E191003A408E /* chat_reply@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chat_reply@3x.png"; path = "iOS Pro/PNG/Tab Bar @3x Filled/General/chat_reply@3x.png"; sourceTree = SOURCE_ROOT; };
+		665310761A52F823003A408E /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		665310781A52F83D003A408E /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
+		6653107A1A52F84C003A408E /* more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@3x.png"; sourceTree = "<group>"; };
 		6688E1A81A488A80009B8FCD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		6688E1A91A488A80009B8FCD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		6688E1AB1A49A050009B8FCD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -214,6 +220,9 @@
 		660CAC2A1A1C2BB900ECE4B0 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				6653107A1A52F84C003A408E /* more@3x.png */,
+				665310781A52F83D003A408E /* more@2x.png */,
+				665310761A52F823003A408E /* more.png */,
 				665310741A52E191003A408E /* chat_reply@3x.png */,
 				665310721A52E16C003A408E /* chat_reply@2x.png */,
 				665310701A52E158003A408E /* chat_reply.png */,
@@ -483,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6653107B1A52F84C003A408E /* more@3x.png in Resources */,
 				6653106F1A521A5C003A408E /* paint_tin@3x.png in Resources */,
 				6688E1C11A51E1E4009B8FCD /* user@3x.png in Resources */,
 				6653105D1A51E55E003A408E /* world_times@3x.png in Resources */,
@@ -497,9 +507,11 @@
 				6653105F1A521722003A408E /* heart.png in Resources */,
 				6614F9781A0FCF89009C643E /* Images.xcassets in Resources */,
 				DD5F90815D75D8B4C5E2DEAB /* user.json in Resources */,
+				665310771A52F823003A408E /* more.png in Resources */,
 				6688E1AF1A49A6C5009B8FCD /* login.png in Resources */,
 				665310591A51E52E003A408E /* world_times.png in Resources */,
 				6688E1BD1A51E198009B8FCD /* user.png in Resources */,
+				665310791A52F83D003A408E /* more@2x.png in Resources */,
 				6653105B1A51E54C003A408E /* world_times@2x.png in Resources */,
 				DD5F98E1AEC2E081E2C8E1D1 /* shot.json in Resources */,
 				665310611A521734003A408E /* heart@2x.png in Resources */,

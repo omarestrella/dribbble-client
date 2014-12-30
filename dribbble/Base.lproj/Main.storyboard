@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyv-MZ-Dpw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Auth View Controller-->
@@ -362,7 +363,7 @@
                                             <outlet property="views" destination="NW9-Yy-SUS" id="h5p-UB-4qC"/>
                                         </connections>
                                     </view>
-                                    <tableView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Gn-Dtl">
+                                    <tableView contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Gn-Dtl">
                                         <rect key="frame" x="0.0" y="207" width="300" height="150"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -371,12 +372,12 @@
                                         </constraints>
                                         <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="75" id="kEX-ls-1Tp" customClass="ShotCommentCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="75" id="kEX-ls-1Tp" customClass="ShotCommentCell">
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kEX-ls-1Tp" id="KIY-GO-YA3">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="comments" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRN-Hq-vCq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRN-Hq-vCq">
                                                             <rect key="frame" x="52" y="35" width="238" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -389,8 +390,19 @@
                                                                 <constraint firstAttribute="width" constant="32" id="heZ-Bg-4hi"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z07-q1-bfq">
+                                                            <rect key="frame" x="260" y="0.0" width="32" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="32" id="6SY-Vb-LxP"/>
+                                                                <constraint firstAttribute="height" constant="32" id="8Lr-bi-CXg"/>
+                                                            </constraints>
+                                                            <state key="normal" image="more.png"/>
+                                                            <connections>
+                                                                <action selector="touchedMoreButton:" destination="PYk-cR-dcy" eventType="touchUpInside" id="Vo8-ds-Giu"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-EU-RnR">
-                                                            <rect key="frame" x="52" y="10" width="238" height="15"/>
+                                                            <rect key="frame" x="52" y="10" width="200" height="15"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -401,13 +413,15 @@
                                                         <constraint firstAttribute="bottom" secondItem="cRN-Hq-vCq" secondAttribute="bottom" constant="10" id="G7r-nB-5PR"/>
                                                         <constraint firstItem="y1d-EU-RnR" firstAttribute="leading" secondItem="hcB-oA-aI1" secondAttribute="trailing" constant="10" id="Jgb-AP-DuL"/>
                                                         <constraint firstItem="cRN-Hq-vCq" firstAttribute="top" secondItem="y1d-EU-RnR" secondAttribute="bottom" constant="10" id="KEC-qN-lg2"/>
-                                                        <constraint firstAttribute="trailing" secondItem="y1d-EU-RnR" secondAttribute="trailing" constant="10" id="NfJ-A8-hHa"/>
                                                         <constraint firstItem="hcB-oA-aI1" firstAttribute="top" secondItem="KIY-GO-YA3" secondAttribute="top" constant="10" id="Pf2-Z0-cbh"/>
                                                         <constraint firstItem="hcB-oA-aI1" firstAttribute="leading" secondItem="KIY-GO-YA3" secondAttribute="leading" constant="10" id="fqc-oJ-tgb"/>
+                                                        <constraint firstItem="Z07-q1-bfq" firstAttribute="leading" secondItem="y1d-EU-RnR" secondAttribute="trailing" constant="8" id="iZ7-EI-Jqx"/>
                                                         <constraint firstAttribute="trailing" secondItem="cRN-Hq-vCq" secondAttribute="trailing" constant="10" id="kU3-8Q-Bcb"/>
                                                         <constraint firstItem="y1d-EU-RnR" firstAttribute="top" secondItem="KIY-GO-YA3" secondAttribute="top" constant="10" id="muX-Kq-Mqs"/>
                                                         <constraint firstAttribute="bottom" secondItem="y1d-EU-RnR" secondAttribute="bottom" constant="10" id="qTM-Qi-pCF"/>
+                                                        <constraint firstItem="Z07-q1-bfq" firstAttribute="top" secondItem="KIY-GO-YA3" secondAttribute="topMargin" constant="-8" id="rnx-T0-8s7"/>
                                                         <constraint firstItem="cRN-Hq-vCq" firstAttribute="top" secondItem="KIY-GO-YA3" secondAttribute="top" constant="30" id="tTd-yS-nBQ"/>
+                                                        <constraint firstItem="Z07-q1-bfq" firstAttribute="trailing" secondItem="KIY-GO-YA3" secondAttribute="trailingMargin" id="yiw-Lt-j8K"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -517,6 +531,7 @@
         <image name="chat_reply.png" width="32" height="32"/>
         <image name="heart.png" width="32" height="32"/>
         <image name="login.png" width="640" height="907"/>
+        <image name="more.png" width="32" height="32"/>
         <image name="number.png" width="32" height="32"/>
         <image name="user.png" width="22" height="22"/>
         <image name="world_times.png" width="22" height="22"/>

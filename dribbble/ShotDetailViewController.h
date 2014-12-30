@@ -26,10 +26,13 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
 
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeightConstraint;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)webButtonPress:(id)sender;
+
+- (IBAction)touchedMoreButton:(UIButton *)sender;
 
 @end
