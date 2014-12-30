@@ -48,5 +48,9 @@
 @property (nonatomic, copy, readonly) NSArray *tags;
 
 - (PMKPromise *)comments;
+- (PMKPromise *)likes:(NSDictionary *)comment;
+
+- (PMKPromise *)like:(NSDictionary *)comment;
+- (PMKPromise *)unlike:(NSDictionary *)comment;
 
 @end

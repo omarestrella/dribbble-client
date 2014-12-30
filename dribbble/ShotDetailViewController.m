@@ -200,12 +200,26 @@
 
 - (IBAction)touchedMoreButton:(UIButton *)sender {
     ShotCommentCell *cell = (ShotCommentCell *)sender.superview.superview;
-    CGPoint point = [self.view convertPoint:(CGPoint){0, 0} fromView:sender];
-    CGFloat extraHeight = 60 + 8; // header + margin
-    point.x = 0;
-    point.y = point.y + self.scrollView.contentOffset.y - cell.frame.size.height - extraHeight;
-    [self.scrollView setContentOffset:point animated:YES];
-    NSLog(@"%@", NSStringFromCGPoint(point));
+    NSIndexPath *index = [self.commentsTableView indexPathForCell:cell];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    NSDictionary *comment = self.comments[index.row];
+    [self.shot likes:comment].then(^(BOOL likesComment) {
+        NSString *like = likesComment ? @"Unlike" : @"Like";
+        [alert addAction:[UIAlertAction actionWithTitle:like style:UIAlertActionStyleDefault handler:^(UIAlertAction *handler) {
+            if (likesComment) {
+                [self.shot unlike:comment];
+            } else {
+                [self.shot like:comment];
+            }
+        }]];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    });
+    
 }
 
 #pragma mark - UITableViewDataSource

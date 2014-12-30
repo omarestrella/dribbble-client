@@ -54,4 +54,9 @@
     return nil;
 }
 
+- (PMKPromise *)likesComment:(NSDictionary *)comment forShot:(ShotModel *)shot {
+    [NSError errorWithDomain:NSErrorDomain code:-1 userInfo:nil];
+    return nil;
+}
+
 @end

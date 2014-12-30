@@ -7,7 +7,6 @@
 //
 
 #import <AFHTTPRequestOperation.h>
-#import <IonIcons.h>
 #import <SDWebImageManager.h>
 
 #import "ShotsViewController.h"

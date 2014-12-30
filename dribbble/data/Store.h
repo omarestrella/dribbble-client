@@ -25,5 +25,6 @@
 - (PMKPromise *)userForId:(NSNumber *)userId;
 - (PMKPromise *)shots:(int)page;
 - (PMKPromise *)commentsForShot:(ShotModel *)shot;
+- (PMKPromise *)likesComment:(NSDictionary *)comment forShot:(ShotModel *)shot;
 
 @end

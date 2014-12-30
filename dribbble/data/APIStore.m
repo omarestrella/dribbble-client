@@ -113,6 +113,19 @@
     });
 }
 
+- (PMKPromise *)likesComment:(NSDictionary *)comment forShot:(ShotModel *)shot {
+    NSNumber *commentId = comment[@"id"];
+    NSString *url = [NSString stringWithFormat:@"shots/%@/comments/%@/like", shot.id, commentId];
+    
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        [self.manager GET:url parameters:nil].then(^{
+            fulfill(@YES);
+        }).catch(^{
+            fulfill(@NO);
+        });
+    }];
+}
+
 #pragma mark - Cache
 
 - (void)setupCache {

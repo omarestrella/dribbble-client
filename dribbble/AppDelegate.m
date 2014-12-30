@@ -10,6 +10,8 @@
 
 #import <SDWebImage/SDWebImageManager.h>
 
+#import <AFNetworkActivityLogger.h>
+
 @interface AppDelegate ()
 
 @end
@@ -54,6 +56,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+#ifdef DEBUG
+    NSLog(@"Start logging...");
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+#endif
+    
     return YES;
 }
 
@@ -80,6 +88,11 @@
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [manager cancelAll];
     [[manager imageCache] clearMemory];
+    
+#ifdef DEBUG
+    NSLog(@"Stop logging...");
+    [[AFNetworkActivityLogger sharedLogger] stopLogging];
+#endif
 }
 
 @end

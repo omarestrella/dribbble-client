@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
-#import <IonIcons.h>
-
 #import "ShotCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+ProportionalFill.h"

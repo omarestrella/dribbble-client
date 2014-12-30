@@ -25,4 +25,16 @@
     return [[Store sharedStore] commentsForShot:self];
 }
 
+- (PMKPromise *)likes:(NSDictionary *)comment {
+    return [[Store sharedStore] likesComment:comment forShot:self];
+}
+
+- (PMKPromise *)like:(NSDictionary *)comment {
+    return nil;
+}
+
+- (PMKPromise *)unlike:(NSDictionary *)comment {
+    return nil;
+}
+
 @end
