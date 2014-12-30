@@ -34,6 +34,9 @@
 		6653106B1A521A35003A408E /* paint_tin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653106A1A521A35003A408E /* paint_tin.png */; };
 		6653106D1A521A4B003A408E /* paint_tin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653106C1A521A4B003A408E /* paint_tin@2x.png */; };
 		6653106F1A521A5C003A408E /* paint_tin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653106E1A521A5C003A408E /* paint_tin@3x.png */; };
+		665310711A52E158003A408E /* chat_reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310701A52E158003A408E /* chat_reply.png */; };
+		665310731A52E16C003A408E /* chat_reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310721A52E16C003A408E /* chat_reply@2x.png */; };
+		665310751A52E191003A408E /* chat_reply@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310741A52E191003A408E /* chat_reply@3x.png */; };
 		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1AC1A49A050009B8FCD /* LoginViewController.m */; };
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
@@ -110,6 +113,9 @@
 		6653106A1A521A35003A408E /* paint_tin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paint_tin.png; path = "iOS Pro/PNG/Tab Bar @1x Filled/General/paint_tin.png"; sourceTree = SOURCE_ROOT; };
 		6653106C1A521A4B003A408E /* paint_tin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint_tin@2x.png"; path = "iOS Pro/PNG/Tab Bar @2x Filled/General/paint_tin@2x.png"; sourceTree = SOURCE_ROOT; };
 		6653106E1A521A5C003A408E /* paint_tin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint_tin@3x.png"; path = "iOS Pro/PNG/Tab Bar @3x Filled/General/paint_tin@3x.png"; sourceTree = SOURCE_ROOT; };
+		665310701A52E158003A408E /* chat_reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_reply.png; path = "iOS Pro/PNG/Tab Bar @1x Filled/General/chat_reply.png"; sourceTree = SOURCE_ROOT; };
+		665310721A52E16C003A408E /* chat_reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chat_reply@2x.png"; path = "iOS Pro/PNG/Tab Bar @2x Filled/General/chat_reply@2x.png"; sourceTree = SOURCE_ROOT; };
+		665310741A52E191003A408E /* chat_reply@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chat_reply@3x.png"; path = "iOS Pro/PNG/Tab Bar @3x Filled/General/chat_reply@3x.png"; sourceTree = SOURCE_ROOT; };
 		6688E1A81A488A80009B8FCD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		6688E1A91A488A80009B8FCD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		6688E1AB1A49A050009B8FCD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -208,6 +214,9 @@
 		660CAC2A1A1C2BB900ECE4B0 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				665310741A52E191003A408E /* chat_reply@3x.png */,
+				665310721A52E16C003A408E /* chat_reply@2x.png */,
+				665310701A52E158003A408E /* chat_reply.png */,
 				6653106E1A521A5C003A408E /* paint_tin@3x.png */,
 				6653106C1A521A4B003A408E /* paint_tin@2x.png */,
 				6653106A1A521A35003A408E /* paint_tin.png */,
@@ -481,7 +490,10 @@
 				665310651A52181C003A408E /* number.png in Resources */,
 				6614F97B1A0FCF89009C643E /* LaunchScreen.xib in Resources */,
 				6614F9761A0FCF89009C643E /* Main.storyboard in Resources */,
+				665310711A52E158003A408E /* chat_reply.png in Resources */,
 				6653106D1A521A4B003A408E /* paint_tin@2x.png in Resources */,
+				665310751A52E191003A408E /* chat_reply@3x.png in Resources */,
+				665310731A52E16C003A408E /* chat_reply@2x.png in Resources */,
 				6653105F1A521722003A408E /* heart.png in Resources */,
 				6614F9781A0FCF89009C643E /* Images.xcassets in Resources */,
 				DD5F90815D75D8B4C5E2DEAB /* user.json in Resources */,

@@ -13,7 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *likes;
 
-@property (nonatomic, weak) IBOutlet UILabel *buckets;
+@property (nonatomic, weak) IBOutlet UILabel *comments;
 
 - (void)setupData:(ShotModel *)shot;
 

@@ -54,9 +54,9 @@
     NSString *likes = [NSString stringWithFormat:@"%@ likes", [self abbreviateNumber:likeCount]];
     self.likes.text = likes;
     
-    NSNumber *bucketsCout = shot.buckets_count;
-    NSString *buckets = [NSString stringWithFormat:@"%@ buckets", [self abbreviateNumber:bucketsCout]];
-    self.buckets.text = buckets;
+    NSNumber *commentsCount = shot.comments_count;
+    NSString *buckets = [NSString stringWithFormat:@"%@ comments", [self abbreviateNumber:commentsCount]];
+    self.comments.text = buckets;
 }
 
 @end

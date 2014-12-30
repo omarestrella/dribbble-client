@@ -102,7 +102,11 @@
 }
 
 - (PMKPromise *)commentsForShot:(ShotModel *)shot {
-    return [self.manager GET:shot.comments_url parameters:nil].then(^(NSArray *comments) {
+    NSNumber *comments = shot.comments_count;
+    NSDictionary *params = @{
+                             @"per_page": comments
+                             };
+    return [self.manager GET:shot.comments_url parameters:params].then(^(NSArray *comments) {
         self.cache[@"comments"] = comments;
 
         return comments;
