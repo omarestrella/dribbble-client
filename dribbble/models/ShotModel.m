@@ -30,11 +30,11 @@
 }
 
 - (PMKPromise *)like:(NSDictionary *)comment {
-    return nil;
+    return [[Store sharedStore] like:comment forShot:self];
 }
 
 - (PMKPromise *)unlike:(NSDictionary *)comment {
-    return nil;
+    return [[Store sharedStore] unlike:comment forShot:self];
 }
 
 @end

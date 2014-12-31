@@ -40,6 +40,7 @@
 		665310771A52F823003A408E /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310761A52F823003A408E /* more.png */; };
 		665310791A52F83D003A408E /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665310781A52F83D003A408E /* more@2x.png */; };
 		6653107B1A52F84C003A408E /* more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6653107A1A52F84C003A408E /* more@3x.png */; };
+		665310811A538C62003A408E /* StoreRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 665310801A538C62003A408E /* StoreRequestSerializer.m */; };
 		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1AC1A49A050009B8FCD /* LoginViewController.m */; };
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
@@ -122,6 +123,8 @@
 		665310761A52F823003A408E /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
 		665310781A52F83D003A408E /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
 		6653107A1A52F84C003A408E /* more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@3x.png"; sourceTree = "<group>"; };
+		6653107F1A538C62003A408E /* StoreRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreRequestSerializer.h; sourceTree = "<group>"; };
+		665310801A538C62003A408E /* StoreRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreRequestSerializer.m; sourceTree = "<group>"; };
 		6688E1A81A488A80009B8FCD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		6688E1A91A488A80009B8FCD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		6688E1AB1A49A050009B8FCD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				660CAC251A1797F700ECE4B0 /* Store.m */,
 				DD5F97842B972FDF0B275759 /* MockStore.h */,
 				DD5F91A87EC17E4741A9456F /* MockStore.m */,
+				6653107F1A538C62003A408E /* StoreRequestSerializer.h */,
+				665310801A538C62003A408E /* StoreRequestSerializer.m */,
 			);
 			name = store;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				6688E1B21A4C57E4009B8FCD /* CommentTextField.m in Sources */,
 				DD5F90A76740DC828FA59BA9 /* ShotDetailViewController.m in Sources */,
 				DD5F9254B74BB12F80A7BA50 /* UIImage+ProportionalFill.m in Sources */,
+				665310811A538C62003A408E /* StoreRequestSerializer.m in Sources */,
 				DD5F99D6A642736729899284 /* UIImage+Tint.m in Sources */,
 				DD5F90B8E5EE3D8A1819CBC1 /* ShotHeaderView.m in Sources */,
 				DD5F9DD77CF46073B4E269D6 /* ShotMetaDetailsView.m in Sources */,

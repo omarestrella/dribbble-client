@@ -53,7 +53,7 @@
 
 - (NSString *)getAuthorizeUrl {
     NSString *formatUrl = @"https://dribbble.com/oauth/authorize?client_id=%@&redirect_uri=%@&scope=%@";
-    NSString *authorizeUrl = [NSString stringWithFormat:formatUrl, clientId, redirectUri, @"public comment"];
+    NSString *authorizeUrl = [NSString stringWithFormat:formatUrl, clientId, redirectUri, @"public comment write"];
     return authorizeUrl;
 }
 

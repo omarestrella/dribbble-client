@@ -23,8 +23,13 @@
 
 - (PMKPromise *)me;
 - (PMKPromise *)userForId:(NSNumber *)userId;
+
 - (PMKPromise *)shots:(int)page;
+
 - (PMKPromise *)commentsForShot:(ShotModel *)shot;
+
 - (PMKPromise *)likesComment:(NSDictionary *)comment forShot:(ShotModel *)shot;
+- (PMKPromise *)like:(NSDictionary *)comment forShot:(ShotModel *)shot;
+- (PMKPromise *)unlike:(NSDictionary *)comment forShot:(ShotModel *)shot;
 
 @end

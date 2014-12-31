@@ -10,6 +10,7 @@
 
 #import "APIStore.h"
 #import "ShotModel.h"
+#import "StoreRequestSerializer.h"
 
 @implementation APIStore {
     @private
@@ -23,7 +24,11 @@
         NSURL *url = [NSURL URLWithString:@"https://api.dribbble.com/v1/"];
         store.manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
         store.manager.responseSerializer = [AFJSONResponseSerializer serializer];
-        store.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        store.manager.requestSerializer = [StoreRequestSerializer serializer];
+        
+        NSMutableSet *contentTypes = [store.manager.responseSerializer.acceptableContentTypes mutableCopy];
+        [contentTypes addObject:@"text/html"];
+        store.manager.responseSerializer.acceptableContentTypes = contentTypes;
 
         [store setupCache];
     }
@@ -124,6 +129,20 @@
             fulfill(@NO);
         });
     }];
+}
+
+- (PMKPromise *)like:(NSDictionary *)comment forShot:(ShotModel *)shot {
+    NSNumber *commentId = comment[@"id"];
+    NSString *url = [NSString stringWithFormat:@"shots/%@/comments/%@/like", shot.id, commentId];
+    
+    return [self.manager POST:url parameters:nil];
+}
+
+- (PMKPromise *)unlike:(NSDictionary *)comment forShot:(ShotModel *)shot {
+    NSNumber *commentId = comment[@"id"];
+    NSString *url = [NSString stringWithFormat:@"shots/%@/comments/%@/like", shot.id, commentId];
+    
+    return [self.manager DELETE:url parameters:nil];
 }
 
 #pragma mark - Cache
