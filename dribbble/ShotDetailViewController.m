@@ -205,8 +205,8 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     NSDictionary *comment = self.comments[index.row];
-    [self.shot likes:comment].then(^(BOOL likesComment) {
-        NSString *like = likesComment ? @"Unlike" : @"Like";
+    [self.shot likes:comment].then(^(NSNumber *likesComment) {
+        NSString *like = [likesComment isEqualToNumber:@YES] ? @"Unlike" : @"Like";
         [alert addAction:[UIAlertAction actionWithTitle:like style:UIAlertActionStyleDefault handler:^(UIAlertAction *handler) {
             if (likesComment) {
                 [self.shot unlike:comment];

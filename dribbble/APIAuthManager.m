@@ -35,7 +35,7 @@
         @"code": code
     };
 
-    return [self.afManager POST:@"https://dribbble.com/oauth/token" parameters:data]
+    return [self.afManager POST:[self getTokenUrl] parameters:data]
         .then(^(NSDictionary *response) {
             [Lockbox setString:response[@"access_token"] forKey:@"code"];
             [self.store setAuthorizationHeader:response[@"access_token"]];
