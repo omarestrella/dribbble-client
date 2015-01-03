@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Omar Estrella. All rights reserved.
 //
 
+#import <PromiseKit-AFNetworking/AFNetworking+PromiseKit.h>
+
 #import "ShotModel.h"
 #import "Store.h"
 
@@ -19,6 +21,13 @@
 
 + (NSValueTransformer *)userJSONTransformer {
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:UserModel.class];
+}
+
+- (BOOL)isGIF {
+    NSString *normal = self.images[@"normal"];
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"^[\\S]+.gif$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *result = [regex firstMatchInString:normal options:0 range:NSMakeRange(0, normal.length)];
+    return result != nil;
 }
 
 - (PMKPromise *)comments {

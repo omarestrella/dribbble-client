@@ -12,6 +12,7 @@
 #import "UIImage+ProportionalFill.h"
 #import "ShotCommentCell.h"
 #import "Store.h"
+#import "ShotGifLabelView.h"
 
 @implementation ShotDetailViewController {
     BOOL keyboardShown;
@@ -176,6 +177,17 @@
                                                  }];
                                 
                                 self.shotImage.image = resizedImage;
+                                
+                                NSLog(@"%@", [resizedImage CIImage].properties);
+                                
+                                if([self.shot isGIF]) {
+                                    NSLog(@"got gif");
+                                    CGRect frame = self.view.frame;
+                                    CGRect rect = CGRectMake(frame.size.width - 40, 140, 30, 16);
+                                    UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"ShotGifLabelView" owner:self options:nil] firstObject];
+                                    view.frame = rect;
+                                    [self.view addSubview:view];
+                                } else { NSLog(@"%@", self.shot.images); }
                             }
                         }];
 }
@@ -208,7 +220,7 @@
     [self.shot likes:comment].then(^(NSNumber *likesComment) {
         NSString *like = [likesComment isEqualToNumber:@YES] ? @"Unlike" : @"Like";
         [alert addAction:[UIAlertAction actionWithTitle:like style:UIAlertActionStyleDefault handler:^(UIAlertAction *handler) {
-            if (likesComment) {
+            if ([likesComment isEqualToNumber:@YES]) {
                 [self.shot unlike:comment];
             } else {
                 [self.shot like:comment];

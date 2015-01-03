@@ -47,6 +47,8 @@
 
 @property (nonatomic, copy, readonly) NSArray *tags;
 
+- (BOOL)isGIF;
+
 - (PMKPromise *)comments;
 - (PMKPromise *)likes:(NSDictionary *)comment;
 
