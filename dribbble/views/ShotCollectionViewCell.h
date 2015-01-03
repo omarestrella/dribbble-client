@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FLAnimatedImageView.h>
 
 #import "SDWebImageDownloaderOperation.h"
 #import "ShotModel.h"
 
 @interface ShotCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet FLAnimatedImageView *imageView;
 
 @property (nonatomic, weak) SDWebImageDownloaderOperation *currentOperation;
 

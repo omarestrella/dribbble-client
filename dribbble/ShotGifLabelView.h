@@ -10,4 +10,6 @@
 
 @interface ShotGifLabelView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end

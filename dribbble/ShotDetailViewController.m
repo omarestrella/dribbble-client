@@ -44,6 +44,8 @@
     self.commentTextField.delegate = self;
     
     self.scrollView.canCancelContentTouches = NO;
+    
+    self.shotImage.shot = self.shot;
 
     [self.shotMeta setupData:self.shot];
 }
@@ -128,10 +130,6 @@
 
 - (void)handleImage {
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    NSString *shotUrl = self.shot.images[@"hidpi"];
-    if (!shotUrl || shotUrl == (id) [NSNull null]) {
-        shotUrl = self.shot.images[@"normal"];
-    }
     
     __block CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width * 0.75f);
     CGSize loadingSize = {frame.size.width, frame.size.height};
@@ -143,7 +141,7 @@
     self.shotImage.image = loadingImage;
     [self.shotImage addSubview:effectView];
     
-    NSURL *url = [NSURL URLWithString:shotUrl];
+    NSURL *url = [self.shot URL];
     
     CGRect loadingFrame = CGRectMake(self.view.frame.size.width / 2 - 40.f, self.view.frame.size.width / 4,
                                      80.f, 80.f);
@@ -178,16 +176,13 @@
                                 
                                 self.shotImage.image = resizedImage;
                                 
-                                NSLog(@"%@", [resizedImage CIImage].properties);
-                                
                                 if([self.shot isGIF]) {
-                                    NSLog(@"got gif");
                                     CGRect frame = self.view.frame;
                                     CGRect rect = CGRectMake(frame.size.width - 40, 140, 30, 16);
                                     UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"ShotGifLabelView" owner:self options:nil] firstObject];
                                     view.frame = rect;
                                     [self.view addSubview:view];
-                                } else { NSLog(@"%@", self.shot.images); }
+                                }
                             }
                         }];
 }

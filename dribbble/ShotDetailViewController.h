@@ -8,6 +8,7 @@
 #import "ShotHeaderView.h"
 #import "ShotMetaDetailsView.h"
 #import "ShotModel.h"
+#import "ShotImageView.h"
 
 @interface ShotDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate>
 
@@ -19,7 +20,7 @@
 @property (nonatomic, weak) UIImage *collectionImage;
 
 @property (weak, nonatomic) IBOutlet ShotHeaderView *shotHeader;
-@property (weak, nonatomic) IBOutlet UIImageView *shotImage;
+@property (weak, nonatomic) IBOutlet ShotImageView *shotImage;
 @property (weak, nonatomic) IBOutlet ShotMetaDetailsView *shotMeta;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (weak, nonatomic) IBOutlet UIButton *commentSubmitButton;

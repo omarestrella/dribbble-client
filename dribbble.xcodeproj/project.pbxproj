@@ -43,6 +43,7 @@
 		665310811A538C62003A408E /* StoreRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 665310801A538C62003A408E /* StoreRequestSerializer.m */; };
 		665310841A56FAAD003A408E /* ShotGifLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 665310831A56FAAD003A408E /* ShotGifLabelView.m */; };
 		665310861A56FAC6003A408E /* ShotGifLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665310851A56FAC6003A408E /* ShotGifLabelView.xib */; };
+		665310891A57A832003A408E /* ShotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 665310881A57A832003A408E /* ShotImageView.m */; };
 		6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1A91A488A80009B8FCD /* UserModel.m */; };
 		6688E1AD1A49A050009B8FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6688E1AC1A49A050009B8FCD /* LoginViewController.m */; };
 		6688E1AF1A49A6C5009B8FCD /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 6688E1AE1A49A6C5009B8FCD /* login.png */; };
@@ -130,6 +131,8 @@
 		665310821A56FAAD003A408E /* ShotGifLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotGifLabelView.h; sourceTree = "<group>"; };
 		665310831A56FAAD003A408E /* ShotGifLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotGifLabelView.m; sourceTree = "<group>"; };
 		665310851A56FAC6003A408E /* ShotGifLabelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShotGifLabelView.xib; sourceTree = "<group>"; };
+		665310871A57A832003A408E /* ShotImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotImageView.h; sourceTree = "<group>"; };
+		665310881A57A832003A408E /* ShotImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotImageView.m; sourceTree = "<group>"; };
 		6688E1A81A488A80009B8FCD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		6688E1A91A488A80009B8FCD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		6688E1AB1A49A050009B8FCD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -353,6 +356,9 @@
 		6614F9A51A10456A009C643E /* views */ = {
 			isa = PBXGroup;
 			children = (
+				665310821A56FAAD003A408E /* ShotGifLabelView.h */,
+				665310831A56FAAD003A408E /* ShotGifLabelView.m */,
+				665310851A56FAC6003A408E /* ShotGifLabelView.xib */,
 				6614F9A61A1045A6009C643E /* ShotCollectionViewCell.h */,
 				6614F9A71A1045A6009C643E /* ShotCollectionViewCell.m */,
 				DD5F982BB475F1B09237F174 /* image */,
@@ -397,6 +403,8 @@
 		DD5F982BB475F1B09237F174 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				665310871A57A832003A408E /* ShotImageView.h */,
+				665310881A57A832003A408E /* ShotImageView.m */,
 				DD5F9464F364DB97A020D617 /* UIImage+ProportionalFill.m */,
 				DD5F9DEB1CEF8C00FE27546C /* UIImage+ProportionalFill.h */,
 				DD5F9B0F21B8F7A1B63B531B /* UIImage+Tint.m */,
@@ -416,9 +424,6 @@
 				DD5F9522FA7196ADB3C20EC5 /* ShotCommentCell.h */,
 				6688E1B01A4C57E4009B8FCD /* CommentTextField.h */,
 				6688E1B11A4C57E4009B8FCD /* CommentTextField.m */,
-				665310821A56FAAD003A408E /* ShotGifLabelView.h */,
-				665310831A56FAAD003A408E /* ShotGifLabelView.m */,
-				665310851A56FAC6003A408E /* ShotGifLabelView.xib */,
 			);
 			name = detail;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				6614F9931A0FD06E009C643E /* ShotsViewController.m in Sources */,
 				6688E1AA1A488A80009B8FCD /* UserModel.m in Sources */,
 				6614F96A1A0FCF89009C643E /* main.m in Sources */,
+				665310891A57A832003A408E /* ShotImageView.m in Sources */,
 				6614F9A11A10270F009C643E /* APIStore.m in Sources */,
 				DD5F9A87097251C5020F94D8 /* MockStore.m in Sources */,
 				6688E1BB1A51E020009B8FCD /* ProfileViewController.m in Sources */,

@@ -172,7 +172,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="131" placeholderIntrinsicHeight="131" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-dO-Ay4">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="131" placeholderIntrinsicHeight="131" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-dO-Ay4" customClass="FLAnimatedImageView">
                                             <rect key="frame" x="35" y="34" width="131" height="131"/>
                                         </imageView>
                                     </subviews>
@@ -265,7 +265,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-SL-MjY">
                                 <rect key="frame" x="0.0" y="128" width="600" height="423"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QW8-hm-6zR">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QW8-hm-6zR" customClass="ShotImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" placeholder="YES" id="0Nx-lC-guw"/>

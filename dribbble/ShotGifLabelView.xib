@@ -22,6 +22,9 @@
                 <constraint firstAttribute="centerY" secondItem="UHY-yA-ojO" secondAttribute="centerY" constant="0.5" id="bG1-Dy-nOn"/>
                 <constraint firstAttribute="centerX" secondItem="UHY-yA-ojO" secondAttribute="centerX" id="sfH-37-MVs"/>
             </constraints>
+            <connections>
+                <outlet property="label" destination="UHY-yA-ojO" id="Le8-Fi-apE"/>
+            </connections>
         </view>
     </objects>
 </document>

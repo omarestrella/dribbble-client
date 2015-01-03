@@ -30,6 +30,14 @@
     return result != nil;
 }
 
+- (NSURL *)URL {
+    NSString *shotUrl = self.images[@"hidpi"];
+    if (!shotUrl || shotUrl == (id) [NSNull null]) {
+        shotUrl = self.images[@"normal"];
+    }
+    return [NSURL URLWithString:shotUrl];
+}
+
 - (PMKPromise *)comments {
     return [[Store sharedStore] commentsForShot:self];
 }
