@@ -64,7 +64,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -81,11 +81,11 @@
             </objects>
             <point key="canvasLocation" x="22" y="-28"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Popular-->
         <scene sceneID="IJf-oJ-QVE">
             <objects>
                 <navigationController id="jnA-gb-Gff" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="wZ4-8O-65X"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="trophy_star.png" id="wZ4-8O-65X"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mec-GB-bD9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYt-6x-iYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2171" y="-756"/>
+            <point key="canvasLocation" x="2403" y="-28"/>
         </scene>
         <!--Popular-->
         <scene sceneID="3fA-ok-0Qi">
@@ -202,7 +202,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udd-Rs-i4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="42"/>
+            <point key="canvasLocation" x="1468" y="-28"/>
         </scene>
         <!--Shot-->
         <scene sceneID="XgN-2I-cRL">
@@ -524,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vo3-Os-4zq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="833"/>
+            <point key="canvasLocation" x="1468" y="793"/>
         </scene>
     </scenes>
     <resources>
@@ -533,6 +533,7 @@
         <image name="login.png" width="640" height="907"/>
         <image name="more.png" width="32" height="32"/>
         <image name="number.png" width="32" height="32"/>
+        <image name="trophy_star.png" width="32" height="32"/>
         <image name="user.png" width="22" height="22"/>
         <image name="world_times.png" width="22" height="22"/>
     </resources>

@@ -10,10 +10,16 @@
 
 #import "APIStore.h"
 
+typedef NS_ENUM(NSUInteger, ShotCategory) {
+    Popular,
+    Following
+};
+
 @interface ShotsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property BOOL loading;
 @property int currentPage;
+@property ShotCategory type;
 
 @property (nonatomic, strong) Store *store;
 

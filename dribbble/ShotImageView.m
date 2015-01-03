@@ -27,8 +27,6 @@
 
 - (void)tap {
     if ([self.shot isGIF]) {
-        NSLog(@"touched");
-        
         if (showingImage) {
             [self.imageView removeFromSuperview];
             showingImage = NO;
