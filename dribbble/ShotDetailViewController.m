@@ -177,11 +177,11 @@
                                 self.shotImage.image = resizedImage;
                                 
                                 if([self.shot isGIF]) {
-                                    CGRect frame = self.view.frame;
-                                    CGRect rect = CGRectMake(frame.size.width - 40, 140, 30, 16);
+                                    CGRect frame = self.scrollView.frame;
+                                    CGRect rect = CGRectMake(frame.size.width - 40, 10, 30, 16);
                                     UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"ShotGifLabelView" owner:self options:nil] firstObject];
                                     view.frame = rect;
-                                    [self.view addSubview:view];
+                                    [self.scrollView addSubview:view];
                                 }
                             }
                         }];
