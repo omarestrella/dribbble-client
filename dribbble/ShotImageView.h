@@ -17,4 +17,6 @@
 @property (weak, nonatomic) FLAnimatedImageView *imageView;
 //@property (weak, nonatomic) UIWebView *webView;
 
+- (void)loadWithFrame:(CGRect)frame loadingImage:(UIImage *)loadingImage;
+
 @end

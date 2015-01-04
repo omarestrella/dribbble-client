@@ -35,7 +35,7 @@
     if (!shotUrl || shotUrl == (id) [NSNull null]) {
         shotUrl = self.images[@"normal"];
     }
-    return [NSURL URLWithString:shotUrl];
+    return [NSURL URLWithString:[shotUrl stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (PMKPromise *)comments {
