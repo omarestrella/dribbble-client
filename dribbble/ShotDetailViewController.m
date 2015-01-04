@@ -44,8 +44,6 @@
     self.commentTextField.delegate = self;
     
     self.scrollView.canCancelContentTouches = NO;
-    
-    self.shotImage.shot = self.shot;
 
     [self.shotMeta setupData:self.shot];
 }
